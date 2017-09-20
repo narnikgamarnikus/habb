@@ -105,7 +105,7 @@ INSTALLED_APPS = ['collectfast', ] + INSTALLED_APPS
 COMPRESS_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 '''
 
-STATIC_ROOT = str(APPS_DIR('staticfiles'))
+STATIC_ROOT = str(APPS_DIR('static'))
 
 STATIC_URL = '/static/'
 
