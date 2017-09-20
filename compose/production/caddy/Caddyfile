@@ -12,7 +12,8 @@ www.{$DOMAIN_NAME} {
     errors stdout
     gzip
 
-    location ~ ^/(static)/ {
-    	root /app/staticfiles;
-    }
+	rewrite /static {
+		without /static
+		to /app/staticfiles
+	}
 }
