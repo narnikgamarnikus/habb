@@ -13,6 +13,6 @@ www.{$DOMAIN_NAME} {
     gzip
 
     location ~ ^/(static)/ {
-    	root /app/habb/staticfiles;
+    	root /app/staticfiles;
     }
 }
