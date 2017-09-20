@@ -58,6 +58,7 @@ INSTALLED_APPS += ['gunicorn', ]
 # Uploaded Media Files
 # ------------------------
 # See: http://django-storages.readthedocs.io/en/latest/index.html
+'''
 INSTALLED_APPS += ['storages', ]
 
 AWS_ACCESS_KEY_ID = env('DJANGO_AWS_ACCESS_KEY_ID')
@@ -97,11 +98,23 @@ STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
 # For Django 1.7+, 'collectfast' should come before
 # 'django.contrib.staticfiles'
 AWS_PRELOAD_METADATA = True
+
 INSTALLED_APPS = ['collectfast', ] + INSTALLED_APPS
 # COMPRESSOR
 # ------------------------------------------------------------------------------
 COMPRESS_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+'''
+
+STATIC_ROOT = str(ROOT_DIR('staticfiles'))
+
+STATIC_URL = '/static/'
+
+MEDIA_ROOT = str(APPS_DIR('media'))
+
+MEDIA_URL = '/media/'
+
 COMPRESS_URL = STATIC_URL
+
 COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', default=True)
 # EMAIL
 # ------------------------------------------------------------------------------
