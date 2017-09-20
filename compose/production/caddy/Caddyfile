@@ -11,9 +11,4 @@ www.{$DOMAIN_NAME} {
     log stdout
     errors stdout
     gzip
-
-	rewrite /static {
-		without /static
-		to /app/staticfiles{path}
-	}
 }
