@@ -293,3 +293,12 @@ ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+
+
+JET_SIDE_MENU_CUSTOM_APPS = [
+    ('users', ['User']),
+    ('teams', ['Team']),
+    ('groups', ['Group']),
+    ('games', ['Game']),
+    ('maps', ['Map']),
+]
