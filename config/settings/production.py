@@ -1,8 +1,8 @@
 """
 Production Configurations
 
-
-- Use Amazon's S3 for storing static files and uploaded media
+- Use WhiteNoise for serving static files
+- Use Amazon's S3 for storing uploaded media
 - Use mailgun to send emails
 - Use Redis for cache
 
@@ -108,6 +108,9 @@ COMPRESS_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 #STATIC_ROOT = str(APPS_DIR('staticfiles'))
 
 #STATIC_URL = '/static/'
+
+WHITENOISE_MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware', ]
+MIDDLEWARE = WHITENOISE_MIDDLEWARE + MIDDLEWARE
 
 MEDIA_ROOT = str(APPS_DIR('media'))
 
