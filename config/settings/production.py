@@ -109,9 +109,9 @@ STATIC_ROOT = str(APPS_DIR('staticfiles'))
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    str(APPS_DIR.path('staticfiles')),
-]
+#STATICFILES_DIRS = [
+#    str(APPS_DIR.path('staticfiles')),
+#]
 
 MEDIA_ROOT = str(APPS_DIR('media'))
 
