@@ -11,4 +11,8 @@ www.{$DOMAIN_NAME} {
     log stdout
     errors stdout
     gzip
+
+    location ~ ^/(static)/ {
+    	root /app/habb/staticfiles;
+    }
 }
