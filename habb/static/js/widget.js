@@ -53,15 +53,15 @@ function main() {
             var jTarget = $(this);
             jTarget.css('position', 'fixed');
             for (var iter = 0; iter < (times + 1) ; iter++) {
-                jTarget.animate({ top: (((iter * 5) % 2 == 0 ? distance * Math.random() : distance * Math.random() * -1)), left: ((iter % 2 == 0 ? distance * Math.random() : distance * Math.random() * -1)) }, interval);
+                jTarget.animate({ top: ((iter % 2 == 0 ? distance * Math.random() : distance * Math.random() * -1)), left: ((iter % 2 == 0 ? distance * Math.random() : distance * Math.random() * -1)) }, interval);
             }
             return jTarget.animate({ top: 0 , left: 0 }, interval);
         }
 
         // We can use jQuery 1.4.2 here
         jQuery('body').append(
-          '<a href="#popup1">' +
-          '<img style="position: fixed; top: 12.5em; right: 0; width: 5em; height: 5em" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">' +
+          '<a href="#popup1" style="position: fixed; top: 12.5em; right: 0;">' +
+          '<img style="width: 5em; height: 5em" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">' +
           '</a>'
           )
         jQuery('body').append(
@@ -74,7 +74,7 @@ function main() {
           '</div>'
           )
         surprise = jQuery('#surprise');
-        surprise.shake(50,5,300);
+        surprise.shake(100,2.5,300);
 
         alert('ready');
         console.log('fuck that shit!')
