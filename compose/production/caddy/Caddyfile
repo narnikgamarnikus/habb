@@ -44,9 +44,9 @@ www.{$DOMAIN_NAME} {
 
     # Long JavaScript expiry (1 year)
 	# Long CSS expiry (1 year)
-	header (.css|.js)$ {
-	  Cache-Control "public, max-age=31536000"
-	}
+	#header (.css|.js)$ {
+	#  Cache-Control "public, max-age=31536000"
+	#}
 
     log stdout
     errors stdout
@@ -54,5 +54,5 @@ www.{$DOMAIN_NAME} {
     	level 6
     }
     browse
-    #tls off
+    tls off
 }
