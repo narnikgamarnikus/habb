@@ -17,6 +17,8 @@ urlpatterns = [
     url(r'^users/', include('habb.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
 
+    url(r'^widgets/', include('habb.widgets.urls', namespace='widgets')),
+
     # Your stuff: custom urls includes go here
 
 

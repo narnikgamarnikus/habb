@@ -61,6 +61,8 @@ LOCAL_APPS = [
     'habb.groups.apps.GroupsConfig',
     'habb.maps.apps.MapsConfig',
     'habb.teams.apps.TeamsConfig',
+    'habb.widgets.apps.WidgetConfig',
+
 
 ]
 
