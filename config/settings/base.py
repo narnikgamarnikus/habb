@@ -263,7 +263,7 @@ AUTHENTICATION_BACKENDS = [
 # Some really nice defaults
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
 ACCOUNT_ADAPTER = 'habb.users.adapters.AccountAdapter'
@@ -299,7 +299,6 @@ ADMIN_URL = r'^admin/'
 
 
 JET_SIDE_MENU_CUSTOM_APPS = [
-    ('widgets', ['Widget']),
     ('gamers', ['Gamer']),
     ('teams', ['Team']),
     ('groups', ['Group']),
