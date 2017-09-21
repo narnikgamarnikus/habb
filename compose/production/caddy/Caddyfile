@@ -3,6 +3,8 @@ www.{$DOMAIN_NAME} {
 }
 
 {$DOMAIN_NAME} {
+	cache
+
     proxy / django:5000 {
     	transparent
     	except /static
