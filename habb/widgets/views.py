@@ -11,9 +11,10 @@ class WidgetDetailView(LoginRequiredMixin, DetailView):
     #pk_url_kwarg = 'token' 
     slug_field = 'token'
     slug_url_kwarg = 'token'
-    template_name = 'widgets/widget_detail.js' 
+    template_name = 'widgets/widget_detail.js'
+    content_type = 'application/javascript'
     # These next two lines tell the view to index lookups by Gamename
-    
+
 
 class WidgetRedirectView(LoginRequiredMixin, RedirectView):
     permanent = False
