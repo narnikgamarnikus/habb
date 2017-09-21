@@ -53,7 +53,8 @@ function main() {
         }
 
         // We can use jQuery 1.4.2 here
-        suprise = jQuery('body').append('<img style="position: absolute; right: 0px; vertical-align: middle;" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">')
+        jQuery('body').append('<img style="position: absolute; right: 0px; vertical-align: middle;" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">')
+        var surprise = jQuery('#surprise');
         surprise.shake();
         alert('ready');
         console.log('fuck that shit!')
