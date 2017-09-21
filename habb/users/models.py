@@ -11,8 +11,6 @@ class User(AbstractUser):
     # First Name and Last Name do not cover name patterns
     # around the globe.
     name = models.CharField(_('Name of User'), blank=True, max_length=255)
-    is_captain = models.BooleanField(_('Is he a captain?'), blank=True, default=False)
-    phone_number = models.CharField(_('Phone number'), blank=True, max_length=255, null=True)
 
     def __str__(self):
         return '{} {}'.format(

@@ -2,12 +2,12 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import python_2_unicode_compatible
-from habb.groups.models import Group
+
 
 @python_2_unicode_compatible
 class Game(models.Model):
 
-    group = models.ForeignKey(Group)
+    group = models.ForeignKey('groups.Group')
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
 

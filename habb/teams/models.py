@@ -4,11 +4,10 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import python_2_unicode_compatible
 
-
 @python_2_unicode_compatible
 class Team(models.Model):
 
-    user = models.ManyToManyField(settings.AUTH_USER_MODEL)
+    gamers = models.ManyToManyField('gamers.Gamer')
     name = models.CharField(max_length=50)
 
 

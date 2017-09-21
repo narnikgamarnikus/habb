@@ -56,6 +56,7 @@ LOCAL_APPS = [
     # custom users app
     'habb.users.apps.UsersConfig',
     # Your stuff: custom apps go here
+    'habb.gamers.apps.GamersConfig',
     'habb.games.apps.GamesConfig',
     'habb.groups.apps.GroupsConfig',
     'habb.maps.apps.MapsConfig',
@@ -296,7 +297,7 @@ ADMIN_URL = r'^admin/'
 
 
 JET_SIDE_MENU_CUSTOM_APPS = [
-    ('users', ['User']),
+    ('gamers', ['Gamer']),
     ('teams', ['Team']),
     ('groups', ['Group']),
     ('games', ['Game']),

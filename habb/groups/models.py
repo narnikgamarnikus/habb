@@ -3,18 +3,16 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import python_2_unicode_compatible
-from habb.teams.models import Team
-from habb.maps.models import Map
 from django.core.exceptions import ValidationError
 
 
 @python_2_unicode_compatible
 class Group(models.Model):
 
-    team = models.ManyToManyField(Team)
+    team = models.ManyToManyField('teams.Team')
     servser = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
-    group_map = models.ForeignKey(Map)
+    group_map = models.ForeignKey('maps.Map')
 
     def clean(self, *args, **kwargs):
     	len(self.team.all()) > 0
