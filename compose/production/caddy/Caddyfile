@@ -4,20 +4,13 @@ www.{$DOMAIN_NAME} {
 
 {$DOMAIN_NAME} {
     proxy / django:5000 {
-    	transparent
-    	except /static
-
         header_upstream Host {host}
         header_upstream X-Real-IP {remote}
         header_upstream X-Forwarded-Proto {scheme}
     }
-
-
     log stdout
     errors stdout
     gzip {
     	level 6
     }
-    browse
-    tls off
 }
