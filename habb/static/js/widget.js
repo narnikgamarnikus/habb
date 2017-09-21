@@ -40,7 +40,7 @@ function scriptLoadHandler() {
 function main() { 
     jQuery(document).ready(function($) {
 
-        var popup_styles document.createElement('link');
+        var popup_styles = document.createElement('link');
         popup_styles.setAttribute("rel", "stylesheet");
         popup_styles.setAttribute("href", "https://stagingserver.xyz/static/css/popup.css");
 
