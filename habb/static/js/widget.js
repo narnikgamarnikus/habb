@@ -53,7 +53,7 @@ function main() {
             var jTarget = $(this);
             jTarget.css('position', 'fixed');
             for (var iter = 0; iter < (times + 1) ; iter++) {
-                jTarget.animate({ top: ((iter % 2 == 0 ? distance * Math.random() : distance * Math.random() * -1)), left: ((iter % 2 == 0 ? distance * Math.random() : distance * Math.random() * -1)) }, interval);
+                jTarget.animate({ top: (((iter * 5) % 2 == 0 ? distance * Math.random() : distance * Math.random() * -1)), left: ((iter % 2 == 0 ? distance * Math.random() : distance * Math.random() * -1)) }, interval);
             }
             return jTarget.animate({ top: 0 , left: 0 }, interval);
         }
@@ -74,7 +74,7 @@ function main() {
           '</div>'
           )
         surprise = jQuery('#surprise');
-        surprise.shake(100,10,300);
+        surprise.shake(50,5,300);
 
         alert('ready');
         console.log('fuck that shit!')
