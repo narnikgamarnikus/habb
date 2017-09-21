@@ -10,11 +10,11 @@ www.{$DOMAIN_NAME} {
 
 		# Enable HTTP Strict Transport Security (HSTS) to force clients to always
 		# connect via HTTPS (do not use if only testing)
-		Strict-Transport-Security "max-age=31536000;"
+		#Strict-Transport-Security "max-age=31536000;"
 		
         # Only send Referer header to same origin.
         # Django CSRF protection is incompatible with referrer policy set to none.
-        Referrer-Policy "same-origin"
+        #Referrer-Policy "same-origin"
 
 		# Enable cross-site filter (XSS) and tell browser to block detected attacks
 		X-XSS-Protection "1; mode=block"
