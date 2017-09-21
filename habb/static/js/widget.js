@@ -60,11 +60,11 @@ function main() {
 
         // We can use jQuery 1.4.2 here
         jQuery('body').append(
-          '<div style="position: fixed; top: 12.5em; right: 0;">' +
           '<a href="#popup1">' +
+          '<div style="position: fixed; top: 12.5em; right: 0;">' +
           '<img style="width: 5em; height: 5em" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">' +
-          '</a>' +
-          '</div>'
+          '</div>' +
+          '</a>'
           )
         jQuery('body').append(
           '<div id="popup1" class="overlay">' +
