@@ -35,6 +35,9 @@ www.{$DOMAIN_NAME} {
 	  Cache-Control "public, max-age=31536000"
 	}
     proxy / django:5000 {
+        transparent
+        except /static
+        
         header_upstream Host {host}
         header_upstream X-Real-IP {remote}
         header_upstream X-Forwarded-Proto {scheme}
