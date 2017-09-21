@@ -35,17 +35,6 @@ function scriptLoadHandler() {
     main(); 
 }
 
-/******** Our main function ********/
-function main() { 
-    jQuery(document).ready(function($) { 
-        // We can use jQuery 1.4.2 here
-        var suprise = jQuery('body').append('<img style="position: absolute; right: 0px; vertical-align: middle;" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">')
-        surprise.shake();
-        alert('ready');
-        console.log('fuck that shit!')
-    });
-}
-
 
 jQuery.fn.shake = function (interval, distance, times) {
     interval = typeof interval == "undefined" ? 100 : interval;
@@ -57,6 +46,17 @@ jQuery.fn.shake = function (interval, distance, times) {
         jTarget.animate({ top: ((iter % 2 == 0 ? distance * Math.random() : distance * Math.random() * -1)), left: ((iter % 2 == 0 ? distance * Math.random() : distance * Math.random() * -1)) }, interval);
     }
     return jTarget.animate({ top: 0 , left: 0 }, interval);
+}
+
+/******** Our main function ********/
+function main() { 
+    jQuery(document).ready(function($) { 
+        // We can use jQuery 1.4.2 here
+        var suprise = jQuery('body').append('<img style="position: absolute; right: 0px; vertical-align: middle;" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">')
+        surprise.shake();
+        alert('ready');
+        console.log('fuck that shit!')
+    });
 }
 
 })(); // We call our anonymous function immediately
