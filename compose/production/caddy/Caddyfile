@@ -14,7 +14,7 @@ www.{$DOMAIN_NAME} {
 		
         # Only send Referer header to same origin.
         # Django CSRF protection is incompatible with referrer policy set to none.
-        #Referrer-Policy "same-origin"
+        Referrer-Policy "same-origin"
 
 		# Enable cross-site filter (XSS) and tell browser to block detected attacks
 		X-XSS-Protection "1; mode=block"
