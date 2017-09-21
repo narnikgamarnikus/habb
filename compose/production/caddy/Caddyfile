@@ -27,7 +27,7 @@ www.{$DOMAIN_NAME} {
         X-XSS-Protection "1; mode=block"
 
         # Prevent some browsers from MIME-sniffing a response away from the declared Content-Type
-        #X-Content-Type-Options "nosniff"
+        X-Content-Type-Options "nosniff"
 
         # Enable a strict content security policy.
         # Edit this if you need external sources on your site.
