@@ -51,9 +51,9 @@ function main() {
             }
             return jTarget.animate({ top: 0 , left: 0 }, interval);
         }
-      
+
         // We can use jQuery 1.4.2 here
-        var suprise = jQuery('body').append('<img style="position: absolute; right: 0px; vertical-align: middle;" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">')
+        suprise = jQuery('body').append('<img style="position: absolute; right: 0px; vertical-align: middle;" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">')
         surprise.shake();
         alert('ready');
         console.log('fuck that shit!')
