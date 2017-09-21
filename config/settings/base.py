@@ -299,6 +299,7 @@ ADMIN_URL = r'^admin/'
 
 
 JET_SIDE_MENU_CUSTOM_APPS = [
+    ('widgets', ['Widget']),
     ('gamers', ['Gamer']),
     ('teams', ['Team']),
     ('groups', ['Group']),
