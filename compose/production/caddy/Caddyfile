@@ -5,13 +5,29 @@ www.{$DOMAIN_NAME} {
 {$DOMAIN_NAME} {
 
 	header / {
+		# Don't show Caddy/Gunicorn as server header.
+		-Server
+
 		# Enable HTTP Strict Transport Security (HSTS) to force clients to always
 		# connect via HTTPS (do not use if only testing)
 		Strict-Transport-Security "max-age=31536000;"
+		
+        # Only send Referer header to same origin.
+        # Django CSRF protection is incompatible with referrer policy set to none.
+        Referrer-Policy "same-origin"
+
 		# Enable cross-site filter (XSS) and tell browser to block detected attacks
 		X-XSS-Protection "1; mode=block"
+
 		# Prevent some browsers from MIME-sniffing a response away from the declared Content-Type
 		X-Content-Type-Options "nosniff"
+		
+        # Enable a strict content security policy.
+        # Edit this if you need external sources on your site.
+        # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+        Content-Security-Policy "connect-src 'self'; default-src 'none'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src data: 'self'; object-src 'self'; style-src 'self'; script-src 'self';"
+
+
 		# Disallow the site to be rendered within a frame (clickjacking protection)
 		X-Frame-Options "DENY"
 	}
@@ -36,5 +52,7 @@ www.{$DOMAIN_NAME} {
         default_max_age 15m
         path /tmp/caddy-cache
     }
-    
+
+    tls vladimirmyshkovski@gmail.com
+
 }
