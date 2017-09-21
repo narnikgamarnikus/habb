@@ -25,7 +25,7 @@ www.{$DOMAIN_NAME} {
         # Enable a strict content security policy.
         # Edit this if you need external sources on your site.
         # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-        Content-Security-Policy "connect-src 'self'; default-src 'none'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src data: 'self'; object-src 'self'; style-src 'self'; script-src 'self';"
+        #Content-Security-Policy "connect-src 'self'; default-src 'none'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src data: #'self'; object-src 'self'; style-src 'self'; script-src 'self';"
 
 
 		# Disallow the site to be rendered within a frame (clickjacking protection)
