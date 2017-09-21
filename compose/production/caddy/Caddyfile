@@ -29,4 +29,12 @@ www.{$DOMAIN_NAME} {
     	level 6
     	ext *
     }
+    cache {
+        match_path /assets
+        match_header Content-Type image/jpg image/png
+        status_header X-Cache-Status
+        default_max_age 15m
+        path /tmp/caddy-cache
+    }
+    
 }
