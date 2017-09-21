@@ -70,7 +70,7 @@ function main() {
 
         jQuery('#surpriseButton').click(function() {
           setSurpriseClicked();
-        };
+        });
 
         // We can use jQuery 1.4.2 here
         jQuery('body').append(
