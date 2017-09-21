@@ -53,7 +53,7 @@ function main() {
         }
 
         // We can use jQuery 1.4.2 here
-        jQuery('body').append('<img style="position: absolute; top: 12.5em; right: 0px; vertical-align: middle; width: 5em; height: 5em" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">')
+        jQuery('body').append('<img style="position: fixed; top: 12.5em; right: 0; width: 5em; height: 5em" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">')
         surprise = jQuery('#surprise');
         surprise.shake();
         alert('ready');
