@@ -14,30 +14,24 @@ www.{$DOMAIN_NAME} {
 		
         # Only send Referer header to same origin.
         # Django CSRF protection is incompatible with referrer policy set to none.
-        Referrer-Policy "same-origin"
+        #Referrer-Policy "same-origin"
 
 		# Enable cross-site filter (XSS) and tell browser to block detected attacks
 		X-XSS-Protection "1; mode=block"
 
 		# Prevent some browsers from MIME-sniffing a response away from the declared Content-Type
-		X-Content-Type-Options "nosniff"
+		#X-Content-Type-Options "nosniff"
 		
         # Enable a strict content security policy.
         # Edit this if you need external sources on your site.
         # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-        Content-Security-Policy "connect-src 'self'; default-src 'none'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src data: 'self'; object-src 'self'; style-src 'self'; script-src 'self';"
+        #Content-Security-Policy "connect-src 'self'; default-src 'none'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src data: #'self'; object-src 'self'; style-src 'self'; script-src 'self';"
 
 
 		# Disallow the site to be rendered within a frame (clickjacking protection)
 		X-Frame-Options "DENY"
 	}
-	#header (.css|.js)$ {
-	#  Cache-Control "public, max-age=31536000"
-	#}
-    proxy / django:5000 {
-        #transparent
-        #except /static
-        
+    proxy / django:5000 {        
         header_upstream Host {host}
         header_upstream X-Real-IP {remote}
         header_upstream X-Forwarded-Proto {scheme}
