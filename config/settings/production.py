@@ -110,7 +110,7 @@ COMPRESS_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 #STATIC_URL = '/static/'
 
 WHITENOISE_MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware', ]
-MIDDLEWARE = WHITENOISE_MIDDLEWARE + MIDDLEWARE
+#MIDDLEWARE = WHITENOISE_MIDDLEWARE + MIDDLEWARE
 
 MEDIA_ROOT = str(APPS_DIR('media'))
 
