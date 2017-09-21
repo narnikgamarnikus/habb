@@ -51,7 +51,7 @@ function main() {
             distance = typeof distance == "undefined" ? 10 : distance;
             times = typeof times == "undefined" ? 3 : times;
             var jTarget = $(this);
-            jTarget.css('position', 'relative');
+            jTarget.css('position', 'fixed');
             for (var iter = 0; iter < (times + 1) ; iter++) {
                 jTarget.animate({ top: ((iter % 2 == 0 ? distance * Math.random() : distance * Math.random() * -1)), left: ((iter % 2 == 0 ? distance * Math.random() : distance * Math.random() * -1)) }, interval);
             }
