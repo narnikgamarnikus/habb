@@ -32,13 +32,19 @@ function scriptLoadHandler() {
     // new jQuery in our local jQuery variable
     jQuery = window.jQuery.noConflict(true);
     // Call our main function
-    main(); 
+    surpriseClicked = localStorage.getItem("surpriseClicked");
+    if (surpriseClicked == null || surpriseClicked == "null") {
+          main();
+        }
+ 
 }
 
 
 /******** Our main function ********/
 function main() { 
     jQuery(document).ready(function($) {
+
+
 
         var popup_styles = document.createElement('link');
         popup_styles.setAttribute("rel", "stylesheet");
@@ -58,9 +64,17 @@ function main() {
             return jTarget.animate({ top: 0 , left: 0 }, interval);
         }
 
+        jQuery.fn.setSurpriseClicked = function(){
+          localStorage.setItem("surpriseClicked", "true");
+        };
+
+        jQuery('#surpriseButton').click(function() {
+          setSurpriseClicked();
+        };
+
         // We can use jQuery 1.4.2 here
         jQuery('body').append(
-          '<a href="#popup1">' +
+          '<a href="#popup1" id="surpriseButton">' +
           '<div style="position: fixed; top: 12.5em; right: 0;">' +
           '<img style="width: 5em; height: 5em" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">' +
           '</div>' +
