@@ -31,12 +31,12 @@ www.{$DOMAIN_NAME} {
 		# Disallow the site to be rendered within a frame (clickjacking protection)
 		X-Frame-Options "DENY"
 	}
-	header (.css|.js)$ {
-	  Cache-Control "public, max-age=31536000"
-	}
+	#header (.css|.js)$ {
+	#  Cache-Control "public, max-age=31536000"
+	#}
     proxy / django:5000 {
-        transparent
-        except /static
+        #transparent
+        #except /static
         
         header_upstream Host {host}
         header_upstream X-Real-IP {remote}
