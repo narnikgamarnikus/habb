@@ -14,9 +14,9 @@ class Group(models.Model):
     password = models.CharField(max_length = 50, verbose_name = _('Пароль'))
     group_map = models.ForeignKey('maps.Map', verbose_name = _('Карта'))
 
-    def clean(self, *args, **kwargs):
-    	len(self.team.all()) > 0
-    	raise ValidationError('The number of commands can not be more than two') 
+    #def clean(self, *args, **kwargs):
+    #	len(self.team.all()) > 0
+    #	raise ValidationError('The number of commands can not be more than two') 
 
     def __str__(self):
         return str(self.pk)
