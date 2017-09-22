@@ -84,6 +84,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 # MIGRATIONS CONFIGURATION
@@ -136,7 +137,11 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 TIME_ZONE = 'UTC'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
+
+LOCALE_PATHS = (
+    str(ROOT_DIR('locale')),
+)
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
@@ -305,3 +310,5 @@ JET_SIDE_MENU_CUSTOM_APPS = [
     ('games', ['Game']),
     ('maps', ['Map']),
 ]
+
+JET_SIDE_MENU_COMPACT = True
