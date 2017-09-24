@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags static %}
+
+{% block title %}Create new website{% endblock %}
+
+{% block content %}
+  <h1>Create new website</h1>
+  <form class="form-horizontal" method="post" action="{% url 'widgets:website_create' %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn">Create</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block title %}Websites{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Websites</h2>
+
+  <div class="list-group">
+    {% for website in website_list %}
+      <a href="{% url 'widgets:website_detail' website.pk %}" class="list-group-item">
+        <h4 class="list-group-item-heading">{{ website.name }}</h4>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

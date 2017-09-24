@@ -1,10 +1,18 @@
+from tastypie.api import Api
 from django.conf import settings
+from django.contrib import admin
 from django.conf.urls import include, url
 from django.conf.urls.static import static
-from django.contrib import admin
 from django.views.generic import TemplateView
-from django.views import defaults as default_views
 from django.conf.urls.i18n import i18n_patterns
+from django.views import defaults as default_views
+from habb.widgets.api import WidgetResource, LeedResource
+
+
+v1_api = Api(api_name='v1')
+v1_api.register(WidgetResource())
+v1_api.register(LeedResource())
+
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
@@ -19,9 +27,14 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     url(r'^widgets/', include('habb.widgets.urls', namespace='widgets')),
-
+    #url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    #url(r'^api/', include(entry_resource.urls, namespace='api')),
+    url(r'^api/', include(v1_api.urls, namespace='v1_api')),
     # Your stuff: custom urls includes go here
 
+    url(r'^rest-auth/', include('rest_auth.urls')),
+    url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
+    #url(r'^rest-auth/facebook/$', FacebookLogin.as_view(), name='fb_login')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

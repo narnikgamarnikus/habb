@@ -46,9 +46,28 @@ DJANGO_APPS = [
 ]
 THIRD_PARTY_APPS = [
     'crispy_forms',  # Form layouts
+
+    'rest_framework', # api
+    'rest_framework.authtoken', # api
+    'rest_auth', # api
+
     'allauth',  # registration
     'allauth.account',  # registration
+    'rest_auth.registration',
+    'rest_framework_swagger',
+    'allauth.socialaccount.providers.vk',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.instagram',
+    'allauth.socialaccount.providers.mailru',
+    'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.odnoklassniki',
+    'allauth.socialaccount.providers.linkedin',
+    'allauth.socialaccount.providers.linkedin_oauth2',
+    'allauth.socialaccount.providers.google',
     'allauth.socialaccount',  # registration
+    #'rest_framework', # api
+    'tastypie', # api
+
 ]
 
 # Apps specific for this project go here.
@@ -311,4 +330,30 @@ JET_SIDE_MENU_CUSTOM_APPS = [
     ('maps', ['Map']),
 ]
 
+
 JET_SIDE_MENU_COMPACT = True
+
+'''
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+'''
+'''
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        'rest_framework_social_oauth2.authentication.SocialAuthentication',
+    ),
+}
+
+
+AUTHENTICATION_BACKENDS = (
+    'rest_framework_social_oauth2.backends.DjangoOAuth2',
+   'django.contrib.auth.backends.ModelBackend',
+)
+'''

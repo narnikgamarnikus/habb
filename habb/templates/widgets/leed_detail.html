@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}Leed: {{ object.full_name }} {{ object.phone_number }} {% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h2>{{ object.full_name }} {{ object.phone_number }}</h2>
+      <h3>{{ object.email }}</h3>
+      <h4>{% trans 'Referals count: ' %}{{ object.referals.count }}</h4>
+      <h5>{% trans 'Email: ' %}{{ object.email_sent }}</h5>
+      <h5>{% trans 'SMS: ' %}{{ object.sms_sent }}</h5>
+      <h5>{% trans 'Telegram: ' %}{{ object.telegram_sent }}</h5>
+      <h5>{% trans 'Call: ' %}{{ object.call_called }}</h5>
+    
+    </div>
+  </div>
+
+</div>
+{% endblock content %}
+

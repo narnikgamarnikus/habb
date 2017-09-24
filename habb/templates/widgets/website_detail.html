@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ object.name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>{{ object.name }}</h2>
+        <div class="list-group">
+          {% for widget in widgets %}
+            <a href="{% url 'widgets:widget_detail' widget.token %}" class="list-group-item">
+              <h4 class="list-group-item-heading">{{ widget.status }}</h4>
+              <h5 class="list-group-item-heading">{{ widget.date_start }}</h5>
+              <h5 class="list-group-item-heading">{{ widget.date_end }}</h5>
+            </a>
+          {% endfor %}
+        </div>
+    </div>
+  </div>
+
+
+</div>
+{% endblock content %}
+

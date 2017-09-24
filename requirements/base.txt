@@ -56,3 +56,11 @@ django-compressor==2.2
 
 django-jet
 python-gettext
+djangorestframework
+django-rest-auth
+markdown       # Markdown support for the browsable API.
+django-filter  # Filtering support
+pygments  # We'll be using this for the code highlighting
+django-tastypie
+django-annoying
+django-rest-swagger
