@@ -81,9 +81,9 @@ function main() {
         stepform_styles.setAttribute("rel", "stylesheet");
         stepform_styles.setAttribute("href", "https://stagingserver.xyz/static/css/stepform.css");
 
-        var stepform_styles = document.createElement('script');
-        stepform_styles.setAttribute("type", "text/javascript");
-        stepform_styles.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
+        var stepform_srcipt = document.createElement('script');
+        stepform_srcipt.setAttribute("type", "text/javascript");
+        stepform_srcipt.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
 
         //var bootstrap_styles = document.createElement('link');
         //bootstrap_styles.setAttribute("rel", "stylesheet");
@@ -97,6 +97,8 @@ function main() {
 
         (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popup_styles);
         (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(stepform_styles);
+        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(stepform_srcipt);
+
         //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_styles);
         //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrapmd_styles);
 
