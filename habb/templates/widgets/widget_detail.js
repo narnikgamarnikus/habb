@@ -44,9 +44,9 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
 
 
 
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
 
 
-    (document.getElementsByTagName("head")[0] || document.documentElement).append(stepform_srcipt);
 
     //(document.getElementsByTagName("head")[0] || document.documentElement).append(bootstrap_script);
 
@@ -83,7 +83,7 @@ function main() {
     stepform_srcipt.setAttribute("type", "text/javascript");
     stepform_srcipt.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
     
-    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+    (document.getElementsByTagName("head")[0] || document.documentElement).append(stepform_srcipt);
 
     jQuery(document).ready(function($) {
         localStorage.removeItem("surpriseClicked");
