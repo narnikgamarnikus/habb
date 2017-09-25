@@ -226,18 +226,18 @@ function main() {
         $elem.parent().removeClass('sf-error');
 
 
-        let errorMsg = "ааОаЖаАаЛбаЙббаА, аЗаАаПаОаЛаНаИбаЕ ббаО аПаОаЛаЕ"
+        let errorMsg = "Необходимо заполнить это поле"
         if(validate == "email"){
           let pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
           if(!pattern.test($elem.val())){
              hasError = true;
-             errorMsg = "ааОаЖаАаЛбаЙббаА, баКаАаЖаИбаЕ аПбаАаВаИаЛбаНбаЙ аАаДбаЕбб баЛаЕаКббаОаНаНаОаЙ аПаОббб"
+             errorMsg = "Введите корректный адрес электронной почты"
           }
         }
         else if(valueLength < validate){
           hasError = true;
           if($elem.data('validate') > 1)
-            errorMsg = "аЂбаЕаБбаЕббб аМаИаНаИаМбаМ " + validate + " баИаМаВаОаЛаОаВ"
+            errorMsg = "Требуется минимум " + validate + " Символов"
         }
 
         if(hasError){
@@ -376,10 +376,39 @@ $(document).ready(function() {
         jQuery('body').append(
           '<div id="popup1" class="overlay">' +
           '<div class="popup">' +
-          '<h2>Here i am</h2>' +
+          '<form class="stepform">' +
+                    
           '<a class="close" id="close" href="#">&times;</a>' +
-          '<form class="stepform" action="" method="post"><!--fieldset class="sf-step"><legend>1. Basic Details</legend><p><label class="control-label" for="firstname">First Name</label><input class="form-control" id="firstname" name="firstname" data-validate="1"/></p><p><label class="control-label" for="lastname">Last Name</label><input class="form-control" id="lastname" name="lastname" data-validate="1"/></p></fieldset--><fieldset class="sf-step"><legend>1. Как вас зовут?</legend> <p><label class="control-label" for="name">Имя</label><input class="form-control" id="name" name="mobile" data-validate="2"/></p></fieldset><fieldset class="sf-step"> <legend>2. Как с вами связаться?</legend> <p><label class="control-label" for="mobile">Номер телефона</label><input class="form-control" type="tel" id="mobile" name="mobile" data-validate="10"/></p><p><label class="control-label" for="email">Электронная почта</label><input class="form-control" id="email" name="email" data-validate="email"/></p></fieldset><fieldset class="sf-step"><legend>3. Расскажите друзьям</legend><p><a id="vk_share_button">SHARE</a></p></fieldset></form>' +
-          '<div class="content">Thank to pop me out of that button, but now im done so you can close this window.</div>' +
+            '<fieldset class="sf-step">' +
+              '<legend>Ла ла ла </legend>' +
+                '<h2>Here i am</h2>' +
+                '<div class="content">Thank to pop me out of that button, but now im done so you can close this window.</div>' +
+            '</fieldset' +
+            '<fieldset class="sf-step">' +
+              '<legend>1. Как вас зовут?</legend>' +
+              '<p>' +
+                '<label class="control-label" for="name">Имя</label>' +
+                '<input class="form-control" id="name" name="mobile" data-validate="2"/>' +
+              '</p>' +
+            '</fieldset>' +
+            '<fieldset class="sf-step">' +
+              '<legend>2. Как с вами связаться?</legend>' +
+              '<p>' +
+                '<label class="control-label" for="mobile">Номер телефона</label>' +
+                '<input class="form-control" type="tel" id="mobile" name="mobile" data-validate="10"/>' +
+              '</p>' +
+              '<p>' +
+                '<label class="control-label" for="email">Электронная почта</label>' +
+                '<input class="form-control" id="email" name="email" data-validate="email"/>' +
+              '</p>' +
+            '</fieldset>' +
+            '<fieldset class="sf-step">' +
+              '<legend>3. Расскажите друзьям</legend>' +
+              '<p>' +
+                '<a id="vk_share_button">SHARE</a>' +
+              '</p>' +
+            '</fieldset>' +
+          '</form>' +
           '<button id="ab">Click</button>' +
           '</div>' +
           '</div>'
