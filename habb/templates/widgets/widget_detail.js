@@ -9,8 +9,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     var script_tag = document.createElement('script');
     script_tag.setAttribute("type","text/javascript");
     script_tag.setAttribute("src",
-        "https://stagingserver.xyz/static/js/main.js");
-        //"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js");
+        "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js");
     
     var bootstrap_script = document.createElement('script');
     bootstrap_script.setAttribute("type", "text/javascript");
