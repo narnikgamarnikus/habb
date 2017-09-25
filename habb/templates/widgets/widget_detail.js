@@ -41,7 +41,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     // Try to find the head, otherwise default to the documentElement
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popper_script);
-    //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrapmd_script);
 
 } else {
@@ -85,7 +85,7 @@ function main() {
         //bootstrapmd_styles.setAttribute("href", "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css");
 
         (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popup_styles);
-        //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_styles);
+        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_styles);
         //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrapmd_styles);
 
         jQuery.fn.shake = function (interval, distance, times) {
