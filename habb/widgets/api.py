@@ -12,8 +12,8 @@ class WidgetResource(ModelResource):
 		authorization = DjangoAuthorization()
 		authentication = MultiAuthentication(
 			#BasicAuthentication(),
-			#CryptographicApiKeyAuthentication(),
-			ApiKeyAuthentication()
+			CryptographicApiKeyAuthentication(),
+			#ApiKeyAuthentication()
 			)
 
 
@@ -27,6 +27,6 @@ class LeedResource(ModelResource):
 		authorization = DjangoAuthorization()
 		authentication = MultiAuthentication(
 			#BasicAuthentication(), 
-			#CryptographicApiKeyAuthentication(),
-			ApiKeyAuthentication()
+			CryptographicApiKeyAuthentication(),
+			#ApiKeyAuthentication()
 			)

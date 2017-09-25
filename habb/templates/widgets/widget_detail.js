@@ -136,7 +136,7 @@ function main() {
             $.ajax({
                 type: "GET",
                 data: "",
-                url: "https://stagingserver.xyz/api/v1/leed/?username=amanda&api_key=b7fa5787c8da8f354e2e1ef76ef8bcf8db392969",
+                url: "https://stagingserver.xyz/api/v1/leed/?username=amanda&api_key=b7fa5787c8da8f354e2e1ef76ef8bcf8db392969&token={% token %}",
                 cache: false,
                 dataType: "json",
                 contentType : 'application/json',
