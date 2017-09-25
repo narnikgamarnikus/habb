@@ -142,7 +142,7 @@ function main() {
         });
 
         var widget_data = JSON.stringify({
-          "widget": "{{ object.pk }}",
+          "pk": "{{ object.pk }}",
           "opens": "{{ opens }}",
         });
 
