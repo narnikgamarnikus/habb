@@ -1,12 +1,5 @@
 {% load token %}
-(function(){
-        var stepform_srcipt = document.createElement('script');
-        stepform_srcipt.setAttribute("type", "text/javascript");
-        stepform_srcipt.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
 
-        (document.getElementsByTagName("body")[0] || document.documentElement).append(stepform_srcipt);
-        alert('asdasd');
-});
 (function() {
 
 // Localize jQuery variable
@@ -26,7 +19,13 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     bootstrap_script.setAttribute("src", 
       "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js")
 
+    
+    var stepform_srcipt = document.createElement('script');
+    stepform_srcipt.setAttribute("type", "text/javascript");
+    stepform_srcipt.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
 
+    (document.getElementsByTagName("html")[0] || document.documentElement).append(stepform_srcipt);
+    alert('asdasd');
 
     /*
     var popper_script = document.createElement('script');
