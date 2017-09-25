@@ -184,7 +184,7 @@ function main() {
       $this.steps.width(stepWidth);
 
       function buildNavigation(count){
-        $this.nav.append("<a class='nav-next' onclick='send();' data-nav='1'>"+options.navtext.next+"</a>");
+        $this.nav.append("<a class='nav-next' onclick='createLeed();' data-nav='1'>"+options.navtext.next+"</a>");
         //$this.nav.append("<a class='nav-prev' data-nav='-1'>"+options.navtext.prev+"</a>");
         // $this.nav.append("<input type='submit' value='Submit' class='btn btn-outline btn-danger pull-right nav-submit' />");
         for(let i=1;i<=count;i++){
@@ -436,7 +436,7 @@ $(document).ready(function() {
           "closed": "{{ closed }}",
         });
 
-        var send = function() {
+        var createLeed = function() {
 
           alert('12312312');
 
