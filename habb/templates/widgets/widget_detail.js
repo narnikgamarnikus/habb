@@ -41,7 +41,6 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     // Try to find the head, otherwise default to the documentElement
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popper_script);
-    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrapmd_script);
 
 } else {
@@ -68,6 +67,7 @@ function scriptLoadHandler() {
 function main() { 
     jQuery(document).ready(function($) {
         localStorage.removeItem("surpriseClicked");
+        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
 
 
         var popup_styles = document.createElement('link');
