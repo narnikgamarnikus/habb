@@ -81,6 +81,7 @@ function main() {
     
     var stepform_srcipt = document.createElement('script');
     stepform_srcipt.setAttribute("type", "text/javascript");
+    stepform_srcipt.setAttribute("id", "script");
     stepform_srcipt.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
     
     (document.getElementsByTagName("head")[0] || document.documentElement).append(stepform_srcipt);
