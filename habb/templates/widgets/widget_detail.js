@@ -38,6 +38,15 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     } else { // Other browsers
       script_tag.onload = scriptLoadHandler;
     }
+    if (bootstrap_script.readyState) {
+      script_tag.onreadystatechange = function () { // For old versions of IE
+          if (this.readyState == 'complete' || this.readyState == 'loaded') {
+              scriptLoadHandler();
+          }
+      };
+    } else { // Other browsers
+      bootstrap_script.onload = scriptLoadHandler;
+    }
     // Try to find the head, otherwise default to the documentElement
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popper_script);
