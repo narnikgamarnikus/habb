@@ -80,6 +80,7 @@ class Widget(Base):
 	
 	title = models.CharField(max_length=50, null=True)
 	offer = models.CharField(max_length=50, null=True)
+	text = models.CharField(max_length=100, null=True)
 	image = models.ImageField(null=True)
 	button_text = models.CharField(max_length=50, null=True)
 	button_color = models.CharField(max_length=50, null=True)

@@ -9,6 +9,9 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     script_tag.setAttribute("type","text/javascript");
     script_tag.setAttribute("src",
         "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js");
+    var bootstrap_script = document.createElement('script');
+    bootstrap_script.setAttribute("type", "text/javascript")
+    bootstrap_script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js")
     if (script_tag.readyState) {
       script_tag.onreadystatechange = function () { // For old versions of IE
           if (this.readyState == 'complete' || this.readyState == 'loaded') {
@@ -49,8 +52,12 @@ function main() {
         var popup_styles = document.createElement('link');
         popup_styles.setAttribute("rel", "stylesheet");
         popup_styles.setAttribute("href", "https://stagingserver.xyz/static/css/popup.css");
+        var bootstrap_styles = document.createElement('link');
+        popup_styles.setAttribute("rel", "stylesheet");
+        popup_styles.setAttribute("href", "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css");
 
         (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popup_styles);
+        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_styles);
 
         jQuery.fn.shake = function (interval, distance, times) {
             interval = typeof interval == "undefined" ? 100 : interval;
@@ -91,7 +98,7 @@ function main() {
           '</div>'
           )
         */
-        jQuery('body').append({{ include 'widgets/indcludes/modal.color.html' }})
+        jQuery('body').append('{% block widget_modal %}{% endblock widget_modal %}')
         surprise = jQuery('#surprise');
         surprise.shake(100,2.5,300);
 

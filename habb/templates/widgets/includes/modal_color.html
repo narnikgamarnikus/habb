@@ -1,9 +1,12 @@
+{% extends 'widgets/widget_detail.js'}
+{% block widget_modal %}
 <!-- Central Modal Medium Danger -->
-<div class="modal fade" id="centralModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-notify modal-danger" role="document">
+<div class="modal fade" id="form_{{ widget.token }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify {% if widget.form_type == 'color_form' %} {{ widgte.color_form_color }} {% endif %}" role="document">
         <!--Content-->
         <div class="modal-content">
             <!--Header-->
+            {% if widget.form_type == 'color_form' %}
             <div class="modal-header">
                 <p class="heading lead">{{ widget.title }}</p>
 
@@ -11,22 +14,49 @@
                     <span aria-hidden="true" class="white-text">&times;</span>
                 </button>
             </div>
+            {% endif %}
 
             <!--Body-->
             <div class="modal-body">
+                {% if widget.form_type == 'color_form' %}
                 <div class="text-center">
-                    <i class="{{ button.icon }} {{ button.icon_size }} mb-3 animated rotateIn"></i>
+                    <i class="{{ widget.color_form_icon }} {{ widget.color_form_icon_size }} mb-3 {{ widget.color_form_animated }}"></i>
                     <p>{{ widget.offer }}</p>
                 </div>
+                {% elif widget.form_type == 'person_form' %}
+                <div class="row">
+                    <div class="col-3 text-center">
+                        {% avatar widget.user class="img-fluid z-depth-1-half rounded-circle" alt="user.full_name" id="user_avatar" %}
+                        <div style="height: 10px"></div>
+                        <p class="title mb-0">{{ widget.user.full_name}}</p>
+                        <p class="text-muted " style="font-size: 13px">{{ widget.user.profession }}</p>
+                    </div>
+                
+                    <div class="col-9">
+                        <p><strong>{{ widget.offer }}</strong></p>
+                        <p>{{ widget.text }}</p>
+                    </div>
+                </div>
+                {% elif widget.form_type == 'image_form' %}
+                <div class="card card-image" style="background-image: url('{{ widget.image }}'); width: 28rem;">
+                    <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+
+                    </div>
+                </div>
+                {% endif %}
+
             </div>
 
+            {% if widget.form_type is not 'image_form' %}
             <!--Footer-->
             <div class="modal-footer justify-content-center">
                 <a type="button" class="btn btn-primary-modal">{{ button.text }} <i class="{{ button.icon }} {{ button.icon_size }} mb-3"></i></a>
                 <a type="button" class="btn btn-outline-secondary-modal waves-effect" data-dismiss="modal">{{ button_cancel.text }}</a>
             </div>
+            {% endif %}
         </div>
         <!--/.Content-->
     </div>
 </div>
 <!-- Central Modal Medium Danger-->
+{% endblock %}

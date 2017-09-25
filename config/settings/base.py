@@ -67,6 +67,7 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount',  # registration
     #'rest_framework', # api
     'tastypie', # api
+    'avatar',
 
 ]
 

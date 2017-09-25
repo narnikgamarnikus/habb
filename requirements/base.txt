@@ -64,3 +64,4 @@ pygments  # We'll be using this for the code highlighting
 django-tastypie
 django-annoying
 django-rest-swagger
+django-avatar
