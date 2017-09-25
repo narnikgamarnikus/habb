@@ -15,6 +15,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     bootstrap_script.setAttribute("type", "text/javascript");
     bootstrap_script.setAttribute("integrity", "sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1");
     bootstrap_script.setAttribute("crossorigin", "anonymous");
+    bootstrap_script.setAttribute("id", "123");
     bootstrap_script.setAttribute("src", 
       "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js");
     /*
@@ -41,6 +42,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     // Try to find the head, otherwise default to the documentElement
 
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+    alert('jQuery');
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
 
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popper_script);
@@ -58,6 +60,7 @@ function scriptLoadHandler() {
     // Restore $ and window.jQuery to their previous values and store the
     // new jQuery in our local jQuery variable
     jQuery = window.jQuery.noConflict(true);
+    alert(jQuery('#123'));
     // Call our main function
     surpriseClicked = localStorage.getItem("surpriseClicked");
     alert('HI');
