@@ -1,11 +1,17 @@
 from rest_framework import serializers
-from .models import Leed
+from .models import Leed, Widget
 
 
 class LeedSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Leed
 		fields = ('id', 'widget', 'first_name', 'last_name', 'email', 'phone_number')
+
+
+class WidgetSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Widget
+		fields = ('id', 'views', 'opens')
 
 '''
 class LeedSerializer(serializers.Serializer):

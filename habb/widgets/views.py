@@ -33,6 +33,7 @@ class WidgetDetailView(LoginRequiredMixin, DetailView):
     def get_context_data(self, *args, **kwargs):
         context = super(WidgetDetailView, self).get_context_data(*args, **kwargs)
         context['user_token'] = self.object.website.user.encode_user_token()
+        context['opens'] = self.self.object.opens + 1
         return context
 
     def get(self, request, *args, **kwargs):
@@ -166,7 +167,7 @@ class LeedListView(LoginRequiredMixin, ListView):
 
 
 
-from .serializers import LeedSerializer
+from .serializers import LeedSerializer, WidgetSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -182,6 +183,21 @@ class LeedList(APIView):
 
     def post(self, request, format=None):
         serializer = LeedSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class WidgetList(APIView):
+
+    def get(self, request, format=None):
+        leeds = Widget.objects.all()
+        serializer = WidgetSerializer(leeds, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = WidgetSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
