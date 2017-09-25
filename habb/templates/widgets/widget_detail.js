@@ -1,15 +1,4 @@
 {% load token %}
-
-(function(){
-
-    var stepform_srcipt = document.createElement('script');
-    stepform_srcipt.setAttribute("type", "text/javascript");
-    stepform_srcipt.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
-
-    (document.getElementsByTagName("html")[0] || document.documentElement).append(stepform_srcipt);
-
-})();
-
 (function() {
 
 // Localize jQuery variable
@@ -29,9 +18,6 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     bootstrap_script.setAttribute("src", 
       "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js")
     
-
-    alert('asdasd');
-
     /*
     var popper_script = document.createElement('script');
     popper_script.setAttribute("type", "text/javascript");
@@ -56,7 +42,15 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     }
     // Try to find the head, otherwise default to the documentElement
 
+
+    var stepform_srcipt = document.createElement('script');
+    stepform_srcipt.setAttribute("type", "text/javascript");
+    stepform_srcipt.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
+
+
+    (document.getElementsByTagName("head")[0] || document.documentElement).append(stepform_srcipt);
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+
     //(document.getElementsByTagName("head")[0] || document.documentElement).append(bootstrap_script);
 
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popper_script);
