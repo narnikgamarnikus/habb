@@ -82,7 +82,7 @@ function main() {
         // We can use jQuery 1.4.2 here
         
         jQuery('body').append(
-          '<a href="#popup1" id="surpriseButton" data-toggle="modal" data-target="#centralModalSuccess">' +
+          '<a href="" id="surpriseButton" data-toggle="modal" data-target="#centralModalSuccess">' +
           '<div style="position: fixed; top: 45%; right: 0;">' +
           '<img style="width: 5em; height: 5em" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">' +
           '</div>' +
