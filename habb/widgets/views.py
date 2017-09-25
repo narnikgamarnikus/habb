@@ -34,6 +34,10 @@ class WidgetDetailView(LoginRequiredMixin, DetailView):
         from .utils import encode_widget_token
         context = super(WidgetDetailView, self).get_context_data(*args, **kwargs)
         context['username'] = self.object.website.user.username
+        from tastypie.models import ApiKey
+        api_key = ApiKey.objects.get(user=self.object.website.user)
+        api_key.generate_key()
+        print(api_key.key)
         context['api_key'] = self.object.website.user.api_key.key
         #context['token'] = encode_widget_token(self.object.pk)['token']
         #print(context['token'])

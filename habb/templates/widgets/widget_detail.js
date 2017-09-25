@@ -132,19 +132,29 @@ function main() {
         surprise = jQuery('#surprise');
         surprise.shake(100,2.5,300);
         */
+
+        var data = JSON.stringify({
+          "email": "test@test.com",
+          "phone_number": "+375259075055",
+          "first_name": "Test",
+          "last_name": "Test"
+        });
+
+
         jQuery('#ab').click(function () {
             $.ajax({
                 type: "POST",
-                data: "{phone_number: 123123123123, first_name: asdasdasd, last_name: zxczxczxc",
+                data: data,
                 url: "https://stagingserver.xyz/api/v1/leed/?username={{ username }}&api_key={{ api_key }}",
                 cache: false,
                 dataType: "json",
                 contentType : 'application/json',
+                processData: false,
                 success: function (json) { 
-                  alert('success');
+                  console.log(json);
                 },
-                error: function () { 
-                  alert("false");
+                error: function (error) { 
+                  console.log(error);
                 }
             });
         });
