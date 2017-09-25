@@ -34,7 +34,7 @@ urlpatterns = [
 
     url(r'^rest-auth/', include('rest_auth.urls')),
     url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
-    #url(r'^rest-auth/facebook/$', FacebookLogin.as_view(), name='fb_login')
+    #url(r'^rest-auth/facebook/$', FacebookLogin.as_view(), name='fb_login'),
     url(r'^avatar/', include('avatar.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

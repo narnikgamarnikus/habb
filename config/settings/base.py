@@ -55,15 +55,15 @@ THIRD_PARTY_APPS = [
     'allauth.account',  # registration
     'rest_auth.registration',
     'rest_framework_swagger',
-    'allauth.socialaccount.providers.vk',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.instagram',
-    'allauth.socialaccount.providers.mailru',
-    'allauth.socialaccount.providers.twitter',
-    'allauth.socialaccount.providers.odnoklassniki',
-    'allauth.socialaccount.providers.linkedin',
-    'allauth.socialaccount.providers.linkedin_oauth2',
-    'allauth.socialaccount.providers.google',
+    #'allauth.socialaccount.providers.vk',
+    #'allauth.socialaccount.providers.facebook',
+    #'allauth.socialaccount.providers.instagram',
+    #'allauth.socialaccount.providers.mailru',
+    #'allauth.socialaccount.providers.twitter',
+    #'allauth.socialaccount.providers.odnoklassniki',
+    #'allauth.socialaccount.providers.linkedin',
+    #'allauth.socialaccount.providers.linkedin_oauth2',
+    #'allauth.socialaccount.providers.google',
     'allauth.socialaccount',  # registration
     #'rest_framework', # api
     'tastypie', # api
