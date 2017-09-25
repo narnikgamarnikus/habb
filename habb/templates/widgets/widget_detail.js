@@ -58,8 +58,8 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
 }
 
 defer(function () {
-  (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
-  alert('loaded!')
+  (document.getElementsByTagName("head")[0] || document.documentElement).append(bootstrap_script);
+  alert('loaded!');
 });
 
 /******** Called once jQuery has loaded ******/
