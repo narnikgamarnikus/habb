@@ -67,7 +67,7 @@ function scriptLoadHandler() {
 function main() { 
     jQuery(document).ready(function($) {
         localStorage.removeItem("surpriseClicked");
-        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
+        (document.getElementsByTagName("body")[0] || document.documentElement).appendChild(bootstrap_script);
 
 
         var popup_styles = document.createElement('link');
