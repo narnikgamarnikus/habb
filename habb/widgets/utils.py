@@ -5,8 +5,8 @@ from django.utils.dateparse import parse_datetime
 #from .signals import pixel_data
 import logging
 import json
-from habb.users.models import User
-from habb.widgets.models import Widget
+#from habb.users.models import User
+#from habb.widgets.models import Widget
 
 
 logger = logging.getLogger(__name__)
@@ -30,7 +30,7 @@ def decode_token(user_token):
         token = json.loads(token)
         return token['token']
 
-
+'''
 def encode_user_token(user_pk):
     user = User.objects.get(pk=user_pk)
 
@@ -61,3 +61,4 @@ def encode_widget_token(widget_pk):
     return {
         'token': token
         }
+'''

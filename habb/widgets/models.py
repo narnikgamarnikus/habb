@@ -102,9 +102,9 @@ class Widget(Base):
 	def __str__(self):
 		return '{}'.format(self.token)
 
-    def generate_token(self):
-        self.one_time_token = token_generator()
-        self.save()
+	def generate_token(self):
+		self.token = token_generator()
+		self.save()
 
 	def widget_script(self):
 		return ''

@@ -100,7 +100,6 @@ class CryptographicApiKeyAuthentication(Authentication):
 
 from rest_framework import authentication
 from rest_framework import exceptions
-from .utils import decode_token, encode_user_token
 from habb.users.models import User
 
 class ExampleAuthentication(authentication.BaseAuthentication):
@@ -112,12 +111,9 @@ class ExampleAuthentication(authentication.BaseAuthentication):
                     
         try:
             token = decode_token(token)
-            print(token)
-            user = User.objects.get(one_time_token=token)
+            user = User.objects.get(token=token)
         except:
             raise exceptions.AuthenticationFailed('Authentication Failed')
         
-        print(user)
         user.generate_token()
-        print(user.one_time_token)
         return (user, None)

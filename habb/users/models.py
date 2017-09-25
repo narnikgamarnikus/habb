@@ -25,7 +25,7 @@ class User(AbstractUser):
     )
 
     name = models.CharField(_('Name of User'), blank=True, max_length=255)
-    one_time_token = models.CharField(max_length=100)
+    token = models.CharField(max_length=100)
 
     def __str__(self):
         return '{} {}'.format(
@@ -34,7 +34,7 @@ class User(AbstractUser):
         	)
 
     def generate_token(self):
-        self.one_time_token = token_generator()
+        self.token = token_generator()
         self.save()
 
 
