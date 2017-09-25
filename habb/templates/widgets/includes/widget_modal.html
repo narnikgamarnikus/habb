@@ -2,11 +2,11 @@
 {% block widget_modal %}
 <!-- Central Modal Medium Danger -->
 <div id="modal_widget_js" class="modal fade" id="form_{{ widget.token }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-notify {% if widget.form_type == 'color_form' %} {{ widgte.color_form_color }} {% endif %}" role="document">
+    <div class="modal-dialog modal-notify {% if widget.form_type is 'color_form' %} {{ widgte.color_form_color }} {% endif %}" role="document">
         <!--Content-->
         <div class="modal-content">
             <!--Header-->
-            {% if widget.form_type = 'color_form' %}
+            {% if widget.form_type is 'color_form' %}
             <div class="modal-header">
                 <p class="heading lead">{{ widget.title }}</p>
 
@@ -18,12 +18,12 @@
 
             <!--Body-->
             <div class="modal-body">
-                {% if widget.form_type = 'color_form' %}
+                {% if widget.form_type is 'color_form' %}
                 <div class="text-center">
                     <i class="{{ widget.color_form_icon }} {{ widget.color_form_icon_size }} mb-3 {{ widget.color_form_animated }}"></i>
                     <p>{{ widget.offer }}</p>
                 </div>
-                {% elif widget.form_type = 'person_form' %}
+                {% elif widget.form_type is 'person_form' %}
                 <div class="row">
                     <div class="col-3 text-center">
                         {#% avatar widget.user class="img-fluid z-depth-1-half rounded-circle" alt="user.full_name" id="user_avatar" %#}
@@ -37,7 +37,7 @@
                         <p>{{ widget.text }}</p>
                     </div>
                 </div>
-                {% elif widget.form_type = 'image_form' %}
+                {% elif widget.form_type is 'image_form' %}
                 <div class="card card-image" style="background-image: url('{{ widget.image }}'); width: 28rem;">
                     <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
 
