@@ -7,6 +7,7 @@ import uuid
 from model_utils import Choices
 from .utils import token_generator
 from django.core import signing
+import json
 
 
 @python_2_unicode_compatible
@@ -41,7 +42,7 @@ class User(AbstractUser):
 
     def encode_user_token(self):
         data = {
-            "token": user.one_time_token,
+            "token": self.token,
         }
 
         token = signing.dumps(
