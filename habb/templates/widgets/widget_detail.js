@@ -122,6 +122,7 @@ function main() {
           '<h2>Here i am</h2>' +
           '<a class="close" href="#">&times;</a>' +
           '<div class="content">Thank to pop me out of that button, but now im done so you can close this window.</div>' +
+          '<button id="ab">Click</button>' +
           '</div>' +
           '</div>'
           )
@@ -130,6 +131,25 @@ function main() {
         surprise = jQuery('#surprise');
         surprise.shake(100,2.5,300);
         */
+
+        jQuery('#ab').click(function () {
+            $.ajax({
+                type: "GET",
+                data: "",
+                url: "https://stagingserver.xyz/api/v1/leed/",
+                cache: false,
+                dataType: "json",
+                contentType : 'application/json',
+                success: function (json) { 
+                  alert('success');
+                },
+                error: function () { 
+                  alert("false");
+                }
+            });
+        });
+
+
         alert('ready');
         console.log('fuck that shit!')
     });
