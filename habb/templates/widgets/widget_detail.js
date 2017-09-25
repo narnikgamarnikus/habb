@@ -39,6 +39,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
       script_tag.onload = scriptLoadHandler;
     }
     // Try to find the head, otherwise default to the documentElement
+
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popper_script);
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
@@ -49,7 +50,19 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     jQuery = window.jQuery;
     main();
 }
-  
+
+function defer(method) {
+  if (window.jQuery) {
+    method();
+  } else {
+    setTimeout(function() { defer(method) }, 50);
+  }
+}
+
+defer(function () {
+  (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
+});
+
 /******** Called once jQuery has loaded ******/
 function scriptLoadHandler() {
     // Restore $ and window.jQuery to their previous values and store the
