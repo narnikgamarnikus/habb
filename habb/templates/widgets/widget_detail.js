@@ -153,6 +153,14 @@ function main() {
       DOWN: 40
     };
 
+
+        $.fn.createLeed = function() {
+
+          alert('12312312');
+
+        };
+    
+
   $.fn.stepform = function(options) {
     var noop = $.noop;
 
@@ -436,11 +444,6 @@ $(document).ready(function() {
           "closed": "{{ closed }}",
         });
 
-        $.fn.createLeed = function() {
-
-          alert('12312312');
-
-        };
 
         jQuery('#ab').click(function () {
             $.ajax({
