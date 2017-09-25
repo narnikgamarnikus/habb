@@ -47,14 +47,14 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'crispy_forms',  # Form layouts
 
-    'rest_framework', # api
-    'rest_framework.authtoken', # api
-    'rest_auth', # api
+    #'rest_framework', # api
+    #'rest_framework.authtoken', # api
+    #'rest_auth', # api
 
     'allauth',  # registration
     'allauth.account',  # registration
-    'rest_auth.registration',
-    'rest_framework_swagger',
+    #'rest_auth.registration',
+    #'rest_framework_swagger',
     #'allauth.socialaccount.providers.vk',
     #'allauth.socialaccount.providers.facebook',
     #'allauth.socialaccount.providers.instagram',
