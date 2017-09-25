@@ -135,6 +135,7 @@ function main() {
         surprise.shake(100,2.5,300);
         */
         usertoken = jQuery('#token').text();
+        alert(usertoken);
         jQuery('#ab').click(function () {
             $.ajax({
                 type: "GET",
