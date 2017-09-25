@@ -121,7 +121,7 @@ function main() {
           '<div id="popup1" class="overlay">' +
           '<div class="popup">' +
           '<h2>Here i am</h2>' +
-          '<a class="close" href="#">&times;</a>' +
+          '<a class="close" id="close" href="#">&times;</a>' +
           '<div class="content">Thank to pop me out of that button, but now im done so you can close this window.</div>' +
           '<button id="ab">Click</button>' +
           '</div>' +
@@ -141,8 +141,12 @@ function main() {
           "last_name": "Test"
         });
 
-        var widget_data = JSON.stringify({
-          "opens": "{{ opens }}",
+        var widget_opened_data = JSON.stringify({
+          "opened": "{{ opened }}",
+        });
+
+        var widget_closed_data = JSON.stringify({
+          "closed": "{{ closed }}",
         });
 
         jQuery('#ab').click(function () {
@@ -166,7 +170,26 @@ function main() {
         jQuery('#surprise').click(function () {
             $.ajax({
                 type: "PUT",
-                data: widget_data,
+                data: widget_opened_data,
+                url: "https://stagingserver.xyz/api/widgets/{{ object.pk }}/?token={{ user_token }}",
+                cache: false,
+                dataType: "json",
+                contentType : 'application/json',
+                processData: false,
+                success: function (json) { 
+                  console.log(json);
+                },
+                error: function (error) { 
+                  console.log(error);
+                }
+            });
+        });
+
+
+        jQuery('#close').click(function () {
+            $.ajax({
+                type: "PUT",
+                data: widget_closed_data,
                 url: "https://stagingserver.xyz/api/widgets/{{ object.pk }}/?token={{ user_token }}",
                 cache: false,
                 dataType: "json",
