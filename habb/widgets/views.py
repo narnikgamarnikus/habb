@@ -32,7 +32,7 @@ class WidgetDetailView(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(WidgetDetailView, self).get_context_data(*args, **kwargs)
-        context['user_token'] = self.object.website.user.token
+        context['user_token'] = self.object.website.user.encode_user_token()
         return context
 
 

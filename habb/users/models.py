@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 import uuid
 from model_utils import Choices
 from .utils import token_generator
+from django.core import signing
 
 
 @python_2_unicode_compatible
@@ -37,6 +38,16 @@ class User(AbstractUser):
         self.token = token_generator()
         self.save()
 
+
+    def encode_user_token(self):
+        data = {
+            "token": user.one_time_token,
+        }
+
+        token = signing.dumps(
+            json.dumps(data, separators=(',', ':')), compress=True)
+
+        return token
 
     def get_absolute_url(self):
         return reverse('users:detail', kwargs={'username': self.username})
