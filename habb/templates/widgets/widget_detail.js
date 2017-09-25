@@ -109,7 +109,7 @@ function main() {
 
         // We can use jQuery 1.4.2 here
 
-        {% token %}
+        var token = '<p id="token">{% token %}</p>'
 
         jQuery('body').append(
           '<a href="#popup1">' +
@@ -134,12 +134,12 @@ function main() {
         surprise = jQuery('#surprise');
         surprise.shake(100,2.5,300);
         */
-
+        usertoken = jQuery('#token').text();
         jQuery('#ab').click(function () {
             $.ajax({
                 type: "GET",
                 data: "",
-                url: "https://stagingserver.xyz/api/v1/leed/",
+                url: "https://stagingserver.xyz/api/v1/leed/?username=Zaza?apikey=b2654745ed03f5b6af8cfb2c63aeae61109f8ba2?token="+usertoken,
                 cache: false,
                 dataType: "json",
                 contentType : 'application/json',

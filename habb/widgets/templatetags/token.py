@@ -19,7 +19,7 @@ def token(context):
         token = None
         if context['object'].__class__.__name__ == 'Widget':
             widget = Widget.objects.get(pk=context['object'].id)
-            token = widget.user.token
+            token = widget.website.user.token
         data = {
             "path": context['request'].get_full_path(),
             "content_type": context['object'].__class__.__name__,
