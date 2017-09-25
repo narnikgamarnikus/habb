@@ -1,16 +1,4 @@
 {% load token %}
-
-function defer(method) {
-  if (window.jQuery)
-      method();
-  else
-      setTimeout(function() { defer(method) }, 50);
-}
-
-defer(function () {
-    alert("jQuery is now loaded");
-});
-
 (function() {
 
 // Localize jQuery variable
@@ -55,13 +43,10 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     // Try to find the head, otherwise default to the documentElement
 
 
-    var stepform_srcipt = document.createElement('script');
-    stepform_srcipt.setAttribute("type", "text/javascript");
-    stepform_srcipt.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
+
 
 
     (document.getElementsByTagName("head")[0] || document.documentElement).append(stepform_srcipt);
-    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
 
     //(document.getElementsByTagName("head")[0] || document.documentElement).append(bootstrap_script);
 
@@ -82,9 +67,6 @@ function scriptLoadHandler() {
     // new jQuery in our local jQuery variable
     jQuery = window.jQuery.noConflict(true);
 
-
-
-
     // Call our main function
     surpriseClicked = localStorage.getItem("surpriseClicked");
     if (surpriseClicked == null || surpriseClicked == "null") {
@@ -95,7 +77,14 @@ function scriptLoadHandler() {
 
 
 /******** Our main function ********/
-function main() { 
+function main() {
+    
+    var stepform_srcipt = document.createElement('script');
+    stepform_srcipt.setAttribute("type", "text/javascript");
+    stepform_srcipt.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
+    
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+
     jQuery(document).ready(function($) {
         localStorage.removeItem("surpriseClicked");
 
