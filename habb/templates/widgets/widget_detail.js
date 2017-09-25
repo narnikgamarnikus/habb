@@ -4,7 +4,8 @@
         stepform_srcipt.setAttribute("type", "text/javascript");
         stepform_srcipt.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
 
-        (document.getElementsByTagName("body")[0] || document.documentElement).appendChild(stepform_srcipt);
+        (document.getElementsByTagName("body")[0] || document.documentElement).append(stepform_srcipt);
+        alert('asdasd');
 });
 (function() {
 
