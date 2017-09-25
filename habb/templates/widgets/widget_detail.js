@@ -436,7 +436,7 @@ $(document).ready(function() {
           "closed": "{{ closed }}",
         });
 
-        var createLeed = function() {
+        $.fn.createLeed = function() {
 
           alert('12312312');
 
