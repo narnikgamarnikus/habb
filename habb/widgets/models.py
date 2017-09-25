@@ -99,6 +99,8 @@ class Widget(Base):
 	date_start = models.DateTimeField(null=True)
 	date_end = models.DateTimeField(null=True)
 
+	views = models.PositiveSmallIntegerField(default=0)
+
 	def __str__(self):
 		return '{}'.format(self.token)
 

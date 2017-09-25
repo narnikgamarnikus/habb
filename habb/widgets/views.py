@@ -35,6 +35,14 @@ class WidgetDetailView(LoginRequiredMixin, DetailView):
         context['user_token'] = self.object.website.user.encode_user_token()
         return context
 
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.views += 1
+        self.object.save()
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
+
+
 
 class WidgetRedirectView(LoginRequiredMixin, RedirectView):
     permanent = False
