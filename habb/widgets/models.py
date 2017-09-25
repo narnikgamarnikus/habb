@@ -194,7 +194,7 @@ class Leed(Base):
 
 	def __str__(self):
 		return '{} {}'.format(
-			self.name,
+			self.full_name,
 			self.phone_number
 			)
 
