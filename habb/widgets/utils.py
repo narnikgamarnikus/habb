@@ -7,17 +7,17 @@ from django.utils.dateparse import parse_datetime
 import logging
 import json
 from habb.users.models import User
+from habb.widgets.models import Widget
 
 
 logger = logging.getLogger(__name__)
 
 
 def decode_token(user_token):
-    print(user_token)
     token = None
     try:
         token = signing.loads(
-            user_token, max_age=300)    
+            user_token)#, max_age=300)
     except SignatureExpired:
         logger.exception("token expired")
     except BadSignature:
@@ -27,9 +27,9 @@ def decode_token(user_token):
         return token['token']
 
 
-def encode_user_token(user):
+def encode_user_token(user_pk):
     
-    user = User.objects.get(pk=user)
+    user = User.objects.get(pk=user_pk)
     token = user.token
 
     data = {
@@ -43,3 +43,21 @@ def encode_user_token(user):
         'token': token
         }
     
+
+def encode_widget_token(widget_pk):
+    
+    #user = User.objects.get(pk=user)
+    widget = Widget.objects.get(pk=widget_pk)
+    user = widget.website.user
+
+    data = {
+        "token": str(user.token),
+        #"widget": str(widget.token)
+        }
+
+    token = signing.dumps(
+        json.dumps(data, separators=(',', ':')), compress=True)
+
+    return {
+        'token': token
+        }

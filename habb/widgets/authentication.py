@@ -75,8 +75,9 @@ class CryptographicApiKeyAuthentication(Authentication):
             if user.api_key.key != api_key:
                 return self._unauthorized()
 
-            user_token = decode_token(token)
-            if str(user.token) != user_token:
+            user_token = token#decode_token(token)
+
+            if str(user.one_time_token) != user_token:
                 return self._unauthorized()
 
         except ApiKey.DoesNotExist:

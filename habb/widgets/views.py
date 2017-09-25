@@ -30,6 +30,18 @@ class WidgetDetailView(LoginRequiredMixin, DetailView):
     template_name = 'widgets/widget_detail.js'
     content_type = 'application/javascript'
 
+    def get_context_data(self, *args, **kwargs):
+        from .utils import encode_widget_token
+        context = super(WidgetDetailView, self).get_context_data(*args, **kwargs)
+        context['username'] = self.object.website.user.username
+        context['api_key'] = self.object.website.user.api_key.key
+        #context['token'] = encode_widget_token(self.object.pk)['token']
+        #print(context['token'])
+        #self.object.website.user.generate_new_token()
+        #self.object.website.user.token_generator()
+        #context['token'] = self.object.website.user.one_time_token
+        return context
+
 
 class WidgetRedirectView(LoginRequiredMixin, RedirectView):
     permanent = False

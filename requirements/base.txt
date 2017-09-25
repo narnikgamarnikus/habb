@@ -65,3 +65,4 @@ django-tastypie
 django-annoying
 django-rest-swagger
 django-avatar
+djangorestframework-jwt
