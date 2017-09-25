@@ -1,4 +1,10 @@
 {% load token %}
+function defer(method) {
+  if (window.jQuery) {
+  } else {
+    setTimeout(function() { alert('hi!') }, 50);
+  }
+}
 (function() {
 
 // Localize jQuery variable
@@ -51,17 +57,9 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     main();
 }
 
-function defer(method) {
-  if (window.jQuery) {
-    method();
-  } else {
-    setTimeout(function() { defer(method) }, 50);
-  }
-}
-
 defer(function () {
   (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
-  alert('hi!')
+  alert('loaded!')
 });
 
 /******** Called once jQuery has loaded ******/
