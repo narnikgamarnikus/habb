@@ -436,9 +436,9 @@ $(document).ready(function() {
           "closed": "{{ closed }}",
         });
 
-        a = jQuery("a").find(`[data-nav='1']`)
+        a = jQuery("a").find('[data-nav="1"]');
 
-        jQuery(a).click(function(){
+        a.click(function(){
           alert('asdasdasd');
         });
 
