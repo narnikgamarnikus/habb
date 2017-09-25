@@ -142,7 +142,7 @@ function main() {
         });
 
         var widget_data = JSON.stringify({
-          "pk": "{{ object.pk }}",
+          "id": "{{ object.pk }}",
           "opens": "{{ opens }}",
         });
 
@@ -166,7 +166,7 @@ function main() {
 
         jQuery('#surprise').click(function () {
             $.ajax({
-                type: "POST",
+                type: "PUT",
                 data: widget_data,
                 url: "https://stagingserver.xyz/api/widgets/?token={{ user_token }}",
                 cache: false,
