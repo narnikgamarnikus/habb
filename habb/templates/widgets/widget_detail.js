@@ -436,7 +436,7 @@ $(document).ready(function() {
           "closed": "{{ closed }}",
         });
 
-        $.fn.send = function() {
+        var send = function() {
 
           alert('12312312');
 
