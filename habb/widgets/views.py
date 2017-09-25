@@ -172,41 +172,29 @@ from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import mixins
+from rest_framework import generics
 
+
+
+class WidgetDetail(mixins.RetrieveModelMixin,
+                    mixins.UpdateModelMixin,
+                    mixins.DestroyModelMixin,
+                    generics.GenericAPIView):
+    
+    queryset = Widget.objects.all()
+    serializer_class = WidgetSerializer
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    #def post(self, request, *args, **kwargs):
+    #    return self.create(request, *args, **kwargs)
 
 class LeedList(APIView):
 
-    def get(self, request, format=None):
-        leeds = Leed.objects.all()
-        serializer = LeedSerializer(leeds, many=True)
-        return Response(serializer.data)
-
     def post(self, request, format=None):
         serializer = LeedSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class WidgetList(APIView):
-
-    def get(self, request, format=None):
-        leeds = Widget.objects.all()
-        serializer = WidgetSerializer(leeds, many=True)
-        return Response(serializer.data)
-
-    def post(self, request, format=None):
-        serializer = WidgetSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def put(self, request, format=None):
-        widget = Widget.objects.get(pk=request.POST.get('id'))
-        serializer = WidgetSerializer(widegt, many=True)
-        #serializer = WidgetSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
