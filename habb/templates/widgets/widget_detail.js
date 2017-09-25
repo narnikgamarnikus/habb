@@ -1,4 +1,15 @@
 {% load token %}
+
+    var bootstrap_script = document.createElement('script');
+    bootstrap_script.setAttribute("type", "text/javascript");
+    bootstrap_script.setAttribute("integrity", "sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1");
+    bootstrap_script.setAttribute("crossorigin", "anonymous");
+    bootstrap_script.setAttribute("src", 
+      "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js")
+    (document.getElementsByTagName("body")[0] || document.documentElement).appendChild(bootstrap_script);
+
+
+
 (function() {
 
 // Localize jQuery variable
@@ -10,7 +21,6 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     script_tag.setAttribute("type","text/javascript");
     script_tag.setAttribute("src",
         "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js");
-    
 
     /*
     var popper_script = document.createElement('script');
@@ -53,18 +63,6 @@ function scriptLoadHandler() {
     // new jQuery in our local jQuery variable
     jQuery = window.jQuery.noConflict(true);
     // Call our main function
-
-
-
-        localStorage.removeItem("surpriseClicked");
-        var bootstrap_script = document.createElement('script');
-        bootstrap_script.setAttribute("type", "text/javascript");
-        bootstrap_script.setAttribute("integrity", "sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1");
-        bootstrap_script.setAttribute("crossorigin", "anonymous");
-        bootstrap_script.setAttribute("src", 
-          "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js")
-        (document.getElementsByTagName("body")[0] || document.documentElement).append(bootstrap_script);
-    
     surpriseClicked = localStorage.getItem("surpriseClicked");
     if (surpriseClicked == null || surpriseClicked == "null") {
           main();
@@ -76,7 +74,7 @@ function scriptLoadHandler() {
 /******** Our main function ********/
 function main() { 
     jQuery(document).ready(function($) {
-
+        localStorage.removeItem("surpriseClicked");
 
 
         var popup_styles = document.createElement('link');
