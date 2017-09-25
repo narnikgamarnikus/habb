@@ -80,7 +80,7 @@ function main() {
         });
 
         // We can use jQuery 1.4.2 here
-        /*
+        
         jQuery('body').append(
           '<a href="#popup1" id="surpriseButton">' +
           '<div style="position: fixed; top: 45%; right: 0;">' +
@@ -88,6 +88,7 @@ function main() {
           '</div>' +
           '</a>'
           )
+        /*
         jQuery('body').append(
           '<div id="popup1" class="overlay">' +
           '<div class="popup">' +
