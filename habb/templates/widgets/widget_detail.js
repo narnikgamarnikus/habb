@@ -10,11 +10,15 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     script_tag.setAttribute("src",
         "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js");
     var bootstrap_script = document.createElement('script');
-    bootstrap_script.setAttribute("type", "text/javascript")
+    bootstrap_script.setAttribute("type", "text/javascript");
+    bootstrap_script.setAttribute("integrity", "sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1");
+    bootstrap_script.setAttribute("crossorigin", "anonymous");
     bootstrap_script.setAttribute("src", 
       "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js")
     var popper_script = document.createElement('script');
-    popper_script.setAttribute("type", "text/javascript")
+    popper_script.setAttribute("type", "text/javascript");
+    popper_script.setAttribute("integrity", "sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4");
+    popper_script.setAttribute("crossorigin", "anonymous");
     popper_script.setAttribute("src", 
       "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js")
     var bootstrapmd_script = document.createElement('script');
@@ -68,7 +72,9 @@ function main() {
         
         var bootstrap_styles = document.createElement('link');
         bootstrap_styles.setAttribute("rel", "stylesheet");
-        bootstrap_styles.setAttribute("href", "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css");        
+        bootstrap_styles.setAttribute("href", "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css");
+        bootstrap_styles.setAttribute("integrity", "sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M");
+        bootstrap_styles.setAttribute("crossorigin","anonymous"); 
 
         var bootstrapmd_styles = document.createElement('link');
         bootstrapmd_styles.setAttribute("rel", "stylesheet");
