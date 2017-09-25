@@ -61,6 +61,7 @@ function defer(method) {
 
 defer(function () {
   (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
+  alert('hi!')
 });
 
 /******** Called once jQuery has loaded ******/
