@@ -1,15 +1,4 @@
 {% load token %}
-
-    bootstrap_script = document.createElement('script');
-    bootstrap_script.setAttribute("type", "text/javascript");
-    bootstrap_script.setAttribute("integrity", "sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1");
-    bootstrap_script.setAttribute("crossorigin", "anonymous");
-    bootstrap_script.setAttribute("src", 
-      "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js")
-    (document.getElementsByTagName("body")[0] || document.documentElement).appendChild(bootstrap_script);
-
-
-
 (function() {
 
 // Localize jQuery variable
@@ -21,7 +10,13 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     script_tag.setAttribute("type","text/javascript");
     script_tag.setAttribute("src",
         "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js");
-
+    
+    var bootstrap_script = document.createElement('script');
+    bootstrap_script.setAttribute("type", "text/javascript");
+    bootstrap_script.setAttribute("integrity", "sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1");
+    bootstrap_script.setAttribute("crossorigin", "anonymous");
+    bootstrap_script.setAttribute("src", 
+      "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js");
     /*
     var popper_script = document.createElement('script');
     popper_script.setAttribute("type", "text/javascript");
@@ -46,6 +41,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     // Try to find the head, otherwise default to the documentElement
 
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+    //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
 
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popper_script);
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
@@ -64,6 +60,17 @@ function scriptLoadHandler() {
     jQuery = window.jQuery.noConflict(true);
     // Call our main function
     surpriseClicked = localStorage.getItem("surpriseClicked");
+    alert('HI');
+
+    var bootstrap_script = document.createElement('script');
+    bootstrap_script.setAttribute("type", "text/javascript");
+    bootstrap_script.setAttribute("integrity", "sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1");
+    bootstrap_script.setAttribute("crossorigin", "anonymous");
+    bootstrap_script.setAttribute("src", 
+      "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js");
+    
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
+    
     if (surpriseClicked == null || surpriseClicked == "null") {
           main();
         }
