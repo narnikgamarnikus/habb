@@ -95,3 +95,29 @@ class CryptographicApiKeyAuthentication(Authentication):
         except ValueError:
             username = ''
         return username or 'nouser'
+
+
+
+from rest_framework import authentication
+from rest_framework import exceptions
+from .utils import decode_token, encode_user_token
+from habb.users.models import User
+
+class ExampleAuthentication(authentication.BaseAuthentication):
+    def authenticate(self, request):
+        token = request.GET.get('token')
+        
+        if not token:
+            raise exceptions.AuthenticationFailed('No such token')       
+                    
+        try:
+            token = decode_token(token)
+            print(token)
+            user = User.objects.get(one_time_token=token)
+        except:
+            raise exceptions.AuthenticationFailed('Authentication Failed')
+        
+        print(user)
+        user.generate_token()
+        print(user.one_time_token)
+        return (user, None)

@@ -13,7 +13,7 @@ from django.contrib.postgres.fields import ArrayField
 from model_utils.fields import StatusField, MonitorField
 from django.utils.functional import cached_property
 from annoying.functions import get_object_or_None
-
+from .utils import token_generator
 
 LEXERS = [item for item in get_all_lexers() if item[1]]
 LANGUAGE_CHOICES = sorted([(item[1][0], item[0]) for item in LEXERS])
@@ -95,12 +95,16 @@ class Widget(Base):
 		#)
 
 	website = models.ForeignKey(Website, null=True)
-	token = models.UUIDField(default=uuid.uuid4, editable=False)
+	token = models.CharField(max_length=100, null=True)
 	date_start = models.DateTimeField(null=True)
 	date_end = models.DateTimeField(null=True)
 
 	def __str__(self):
 		return '{}'.format(self.token)
+
+    def generate_token(self):
+        self.one_time_token = token_generator()
+        self.save()
 
 	def widget_script(self):
 		return ''

@@ -31,19 +31,8 @@ class WidgetDetailView(LoginRequiredMixin, DetailView):
     content_type = 'application/javascript'
 
     def get_context_data(self, *args, **kwargs):
-        from .utils import encode_widget_token
         context = super(WidgetDetailView, self).get_context_data(*args, **kwargs)
-        context['username'] = self.object.website.user.username
-        from tastypie.models import ApiKey
-        api_key = ApiKey.objects.get(user=self.object.website.user)
-        api_key.generate_key()
-        print(api_key.key)
-        context['api_key'] = self.object.website.user.api_key.key
-        #context['token'] = encode_widget_token(self.object.pk)['token']
-        #print(context['token'])
-        #self.object.website.user.generate_new_token()
-        #self.object.website.user.token_generator()
-        #context['token'] = self.object.website.user.one_time_token
+        context['user_token'] = self.object.website.user.one_time_token
         return context
 
 
@@ -155,3 +144,37 @@ class LeedListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         queryset = super(LeedListView, self).get_queryset()
         return queryset.filter(widget__website__user = self.request.user)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+from .serializers import LeedSerializer
+from django.http import Http404
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+
+
+class LeedList(APIView):
+
+    def get(self, request, format=None):
+        leeds = Leed.objects.all()
+        serializer = LeedSerializer(leeds, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = LeedSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

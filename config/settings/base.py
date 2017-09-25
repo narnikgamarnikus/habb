@@ -47,7 +47,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'crispy_forms',  # Form layouts
 
-    #'rest_framework', # api
+    'rest_framework', # api
     #'rest_framework.authtoken', # api
     #'rest_auth', # api
 
@@ -358,6 +358,15 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        #'rest_framework.authentication.BasicAuthentication',
+        #'rest_framework.authentication.SessionAuthentication',
+        'habb.widgets.authentication.ExampleAuthentication',
+    )
+}
 
 '''
 REST_USE_JWT = True

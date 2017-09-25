@@ -9,9 +9,9 @@ from django.views import defaults as default_views
 from habb.widgets.api import WidgetResource, LeedResource
 
 
-v1_api = Api(api_name='v1')
-v1_api.register(WidgetResource())
-v1_api.register(LeedResource())
+#v1_api = Api(api_name='v1')
+#v1_api.register(WidgetResource())
+#v1_api.register(LeedResource())
 
 
 urlpatterns = [
@@ -29,14 +29,14 @@ urlpatterns = [
     url(r'^widgets/', include('habb.widgets.urls', namespace='widgets')),
     #url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     #url(r'^api/', include(entry_resource.urls, namespace='api')),
-    url(r'^api/', include(v1_api.urls, namespace='v1_api')),
+    #url(r'^api/', include(v1_api.urls, namespace='v1_api')),
     # Your stuff: custom urls includes go here
 
     #url(r'^rest-auth/', include('rest_auth.urls')),
     #url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
     #url(r'^rest-auth/facebook/$', FacebookLogin.as_view(), name='fb_login'),
     url(r'^avatar/', include('avatar.urls')),
-    
+    url(r'^api/', include('habb.widgets.api_urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -1,12 +1,11 @@
 from rest_framework import serializers
-from snippets.models import Snippet, LANGUAGE_CHOICES, STYLE_CHOICES
 from .models import Leed
 
 
 class LeedSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Leed
-		fields = ('widget', 'name', 'email', 'phone')
+		fields = ('id', 'widget', 'first_name', 'last_name', 'email', 'phone_number')
 
 '''
 class LeedSerializer(serializers.Serializer):
