@@ -4,7 +4,7 @@ from tastypie.compat import (
     get_user_model, get_username_field, unsalt_token, is_authenticated
 )
 from tastypie.http import HttpUnauthorized
-
+from .utils import decode_token
 
 class CryptographicApiKeyAuthentication(Authentication):
     """
@@ -105,7 +105,7 @@ from habb.users.models import User
 class ExampleAuthentication(authentication.BaseAuthentication):
     def authenticate(self, request):
         token = request.GET.get('token')
-        
+
         if not token:
             raise exceptions.AuthenticationFailed('No such token')       
                     
@@ -115,5 +115,5 @@ class ExampleAuthentication(authentication.BaseAuthentication):
         except:
             raise exceptions.AuthenticationFailed('Authentication Failed')
         
-        user.generate_token()
+        #user.generate_token()
         return (user, None)
