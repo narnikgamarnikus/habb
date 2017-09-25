@@ -15,9 +15,8 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     bootstrap_script.setAttribute("type", "text/javascript");
     bootstrap_script.setAttribute("integrity", "sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1");
     bootstrap_script.setAttribute("crossorigin", "anonymous");
-    bootstrap_script.setAttribute("id", "123");
     bootstrap_script.setAttribute("src", 
-      "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js");
+      "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js")
     /*
     var popper_script = document.createElement('script');
     popper_script.setAttribute("type", "text/javascript");
@@ -42,8 +41,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     // Try to find the head, otherwise default to the documentElement
 
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
-    alert('jQuery');
-    //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
+    //(document.getElementsByTagName("head")[0] || document.documentElement).append(bootstrap_script);
 
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popper_script);
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
@@ -60,20 +58,8 @@ function scriptLoadHandler() {
     // Restore $ and window.jQuery to their previous values and store the
     // new jQuery in our local jQuery variable
     jQuery = window.jQuery.noConflict(true);
-    alert(jQuery('#123'));
     // Call our main function
     surpriseClicked = localStorage.getItem("surpriseClicked");
-    alert('HI');
-
-    var bootstrap_script = document.createElement('script');
-    bootstrap_script.setAttribute("type", "text/javascript");
-    bootstrap_script.setAttribute("integrity", "sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1");
-    bootstrap_script.setAttribute("crossorigin", "anonymous");
-    bootstrap_script.setAttribute("src", 
-      "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js");
-    
-    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
-    
     if (surpriseClicked == null || surpriseClicked == "null") {
           main();
         }
@@ -91,18 +77,27 @@ function main() {
         popup_styles.setAttribute("rel", "stylesheet");
         popup_styles.setAttribute("href", "https://stagingserver.xyz/static/css/popup.css");
         
-        var bootstrap_styles = document.createElement('link');
-        bootstrap_styles.setAttribute("rel", "stylesheet");
-        bootstrap_styles.setAttribute("href", "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css");
-        bootstrap_styles.setAttribute("integrity", "sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M");
-        bootstrap_styles.setAttribute("crossorigin","anonymous"); 
+        var stepform_styles = document.createElement('link');
+        stepform_styles.setAttribute("rel", "stylesheet");
+        stepform_styles.setAttribute("href", "https://stagingserver.xyz/static/css/stepform.css");
+
+        var stepform_styles = document.createElement('script');
+        stepform_styles.setAttribute("type", "text/javascript");
+        stepform_styles.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
+
+        //var bootstrap_styles = document.createElement('link');
+        //bootstrap_styles.setAttribute("rel", "stylesheet");
+        //bootstrap_styles.setAttribute("href", "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css");
+        //bootstrap_styles.setAttribute("integrity", "sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M");
+        //bootstrap_styles.setAttribute("crossorigin","anonymous"); 
 
         //var bootstrapmd_styles = document.createElement('link');
         //bootstrapmd_styles.setAttribute("rel", "stylesheet");
         //bootstrapmd_styles.setAttribute("href", "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css");
 
         (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popup_styles);
-        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_styles);
+        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(stepform_styles);
+        //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_styles);
         //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrapmd_styles);
 
         jQuery.fn.shake = function (interval, distance, times) {
@@ -143,6 +138,7 @@ function main() {
           '<div class="popup">' +
           '<h2>Here i am</h2>' +
           '<a class="close" id="close" href="#">&times;</a>' +
+          '<form class="stepform" action="" method="post"><!--fieldset class="sf-step"><legend>1. Basic Details</legend><p><label class="control-label" for="firstname">First Name</label><input class="form-control" id="firstname" name="firstname" data-validate="1"/></p><p><label class="control-label" for="lastname">Last Name</label><input class="form-control" id="lastname" name="lastname" data-validate="1"/></p></fieldset--><fieldset class="sf-step"><legend>1. Как вас зовут?</legend> <p><label class="control-label" for="name">Имя</label><input class="form-control" id="name" name="mobile" data-validate="2"/></p></fieldset><fieldset class="sf-step"> <legend>2. Как с вами связаться?</legend> <p><label class="control-label" for="mobile">Номер телефона</label><input class="form-control" type="tel" id="mobile" name="mobile" data-validate="10"/></p><p><label class="control-label" for="email">Электронная почта</label><input class="form-control" id="email" name="email" data-validate="email"/></p></fieldset><fieldset class="sf-step"><legend>3. Расскажите друзьям</legend><p><a id="vk_share_button">SHARE</a></p></fieldset></form>' +
           '<div class="content">Thank to pop me out of that button, but now im done so you can close this window.</div>' +
           '<button id="ab">Click</button>' +
           '</div>' +
