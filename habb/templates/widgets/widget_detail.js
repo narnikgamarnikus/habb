@@ -11,7 +11,13 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
         "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js");
     var bootstrap_script = document.createElement('script');
     bootstrap_script.setAttribute("type", "text/javascript")
-    bootstrap_script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js")
+    bootstrap_script.setAttribute("src", "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js")
+    var popper_script = document.createElement('script');
+    popper_script.setAttribute("type", "text/javascript")
+    popper_script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js")
+    var bootstrapmd_script = document.createElement('script');
+    bootstrapmd_script.setAttribute("type", "text/javascript")
+    bootstrapmd_script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js")
     if (script_tag.readyState) {
       script_tag.onreadystatechange = function () { // For old versions of IE
           if (this.readyState == 'complete' || this.readyState == 'loaded') {
@@ -23,6 +29,10 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     }
     // Try to find the head, otherwise default to the documentElement
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_styles);
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrapmd_styles);
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popper_script);
+
 } else {
     // The jQuery version on the window is the one we want to use
     jQuery = window.jQuery;
@@ -52,12 +62,18 @@ function main() {
         var popup_styles = document.createElement('link');
         popup_styles.setAttribute("rel", "stylesheet");
         popup_styles.setAttribute("href", "https://stagingserver.xyz/static/css/popup.css");
+        
         var bootstrap_styles = document.createElement('link');
-        popup_styles.setAttribute("rel", "stylesheet");
-        popup_styles.setAttribute("href", "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css");
+        bootstrap_styles.setAttribute("rel", "stylesheet");
+        bootstrap_styles.setAttribute("href", "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css");        
+
+        var bootstrapmd_styles = document.createElement('link');
+        bootstrapmd_styles.setAttribute("rel", "stylesheet");
+        bootstrapmd_styles.setAttribute("href", "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css");
 
         (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popup_styles);
         (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_styles);
+        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrapmd_styles);
 
         jQuery.fn.shake = function (interval, distance, times) {
             interval = typeof interval == "undefined" ? 100 : interval;
