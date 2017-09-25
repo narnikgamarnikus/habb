@@ -1,3 +1,4 @@
+{% load token %}
 (function() {
 
 // Localize jQuery variable
@@ -107,7 +108,9 @@ function main() {
         });
 
         // We can use jQuery 1.4.2 here
-        
+
+        {% token %}
+
         jQuery('body').append(
           '<a href="#popup1">' +
           '<div style="position: fixed; top: 45%; right: 0;">' +
