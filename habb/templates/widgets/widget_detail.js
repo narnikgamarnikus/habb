@@ -39,9 +39,9 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
       script_tag.onload = scriptLoadHandler;
     }
     // Try to find the head, otherwise default to the documentElement
-    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popper_script);
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
     //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrapmd_script);
 
 } else {
