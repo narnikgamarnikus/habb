@@ -124,7 +124,7 @@ function main() {
 
 
         jQuery('body').append(
-          '<a id="surprise" href="#" data-toggle="modal" data-target="#exampleModalLong">' +
+          '<a id="surprise_button" href="#popup1">' +
           '<div style="position: fixed; top: 45%; right: 0;">' +
           '<img style="width: 5em; height: 5em" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">' +
           '</div>' +
@@ -185,7 +185,7 @@ function main() {
             });
         });
 
-        jQuery('#surprise').click(function () {
+        jQuery('#surprise_button').click(function () {
             $.ajax({
                 type: "PUT",
                 data: widget_opened_data,
