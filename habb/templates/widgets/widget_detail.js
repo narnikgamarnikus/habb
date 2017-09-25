@@ -145,7 +145,7 @@ function main() {
             $.ajax({
                 type: "POST",
                 data: data,
-                url: "https://stagingserver.xyz/leeds/?token={{ user_token }}",
+                url: "https://stagingserver.xyz/api/leeds/?token={{ user_token }}",
                 cache: false,
                 dataType: "json",
                 contentType : 'application/json',
