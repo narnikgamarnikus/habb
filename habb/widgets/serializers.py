@@ -11,7 +11,7 @@ class LeedSerializer(serializers.ModelSerializer):
 class WidgetSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Widget
-		fields = ('id', 'views', 'opens')
+		fields = ('id', 'viewed', 'opened', 'closed')
 
 '''
 class LeedSerializer(serializers.Serializer):
