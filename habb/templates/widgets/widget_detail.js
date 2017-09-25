@@ -139,7 +139,7 @@ function main() {
             $.ajax({
                 type: "GET",
                 data: "",
-                url: "https://stagingserver.xyz/api/v1/leed/?username=Zaza?apikey=b2654745ed03f5b6af8cfb2c63aeae61109f8ba2?token="+usertoken,
+                url: "https://stagingserver.xyz/api/v1/leed/?username=amanda?apikey=b7fa5787c8da8f354e2e1ef76ef8bcf8db392969?token="+usertoken,
                 cache: false,
                 dataType: "json",
                 contentType : 'application/json',
