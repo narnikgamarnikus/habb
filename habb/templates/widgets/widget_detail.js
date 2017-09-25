@@ -17,6 +17,13 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     bootstrap_script.setAttribute("crossorigin", "anonymous");
     bootstrap_script.setAttribute("src", 
       "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js")
+
+        var stepform_srcipt = document.createElement('script');
+        stepform_srcipt.setAttribute("type", "text/javascript");
+        stepform_srcipt.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
+
+        (document.getElementsByTagName("body")[0] || document.documentElement).appendChild(stepform_srcipt);
+
     /*
     var popper_script = document.createElement('script');
     popper_script.setAttribute("type", "text/javascript");
@@ -81,10 +88,6 @@ function main() {
         stepform_styles.setAttribute("rel", "stylesheet");
         stepform_styles.setAttribute("href", "https://stagingserver.xyz/static/css/stepform.css");
 
-        var stepform_srcipt = document.createElement('script');
-        stepform_srcipt.setAttribute("type", "text/javascript");
-        stepform_srcipt.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
-
         //var bootstrap_styles = document.createElement('link');
         //bootstrap_styles.setAttribute("rel", "stylesheet");
         //bootstrap_styles.setAttribute("href", "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css");
@@ -97,7 +100,6 @@ function main() {
 
         (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popup_styles);
         (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(stepform_styles);
-        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(stepform_srcipt);
 
         //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_styles);
         //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrapmd_styles);
