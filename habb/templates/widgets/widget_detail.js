@@ -134,8 +134,8 @@ function main() {
         */
         jQuery('#ab').click(function () {
             $.ajax({
-                type: "GET",
-                data: "",
+                type: "POST",
+                data: "{phone_number: 123123123123, first_name: asdasdasd, last_name: zxczxczxc",
                 url: "https://stagingserver.xyz/api/v1/leed/?username={{ username }}&api_key={{ api_key }}",
                 cache: false,
                 dataType: "json",

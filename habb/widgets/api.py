@@ -16,7 +16,7 @@ class WidgetResource(ModelResource):
 			BasicAuthentication(),
 			#CryptographicApiKeyAuthentication(),
 			ApiKeyAuthentication(),
-			SessionAuthentication()
+			#SessionAuthentication(),
 			)
 
 
@@ -32,7 +32,7 @@ class LeedResource(ModelResource):
 			BasicAuthentication(), 
 			#CryptographicApiKeyAuthentication(),
 			ApiKeyAuthentication(),
-			SessionAuthentication()
+			#SessionAuthentication(),
 			)
 		#filtering = {
 		#	'token': ALL,
