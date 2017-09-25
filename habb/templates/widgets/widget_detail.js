@@ -46,6 +46,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
 } else {
     // The jQuery version on the window is the one we want to use
     jQuery = window.jQuery;
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
     main();
 }
   
@@ -55,7 +56,6 @@ function scriptLoadHandler() {
     // new jQuery in our local jQuery variable
     jQuery = window.jQuery.noConflict(true);
     // Call our main function
-    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
     surpriseClicked = localStorage.getItem("surpriseClicked");
     if (surpriseClicked == null || surpriseClicked == "null") {
           main();
