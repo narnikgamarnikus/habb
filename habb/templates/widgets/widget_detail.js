@@ -371,7 +371,7 @@ $(document).ready(function() {
           '</a>'
           )
 
-        jQuery('body').append('<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div><div class="modal-body"> ... </div><div class="modal-footer"> <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Save changes</button> </div></div></div></div>')
+        //jQuery('body').append('<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div><div class="modal-body"> ... </div><div class="modal-footer"> <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Save changes</button> </div></div></div></div>')
         
         jQuery('body').append(
           '<div id="popup1" class="overlay">' +
@@ -383,7 +383,7 @@ $(document).ready(function() {
               '<legend>Ла ла ла </legend>' +
                 '<h2>Here i am</h2>' +
                 '<div class="content">Thank to pop me out of that button, but now im done so you can close this window.</div>' +
-            '</fieldset' +
+            '</fieldset>' +
             '<fieldset class="sf-step">' +
               '<legend>1. Как вас зовут?</legend>' +
               '<p>' +
