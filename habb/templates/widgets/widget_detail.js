@@ -9,6 +9,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     script_tag.setAttribute("type","text/javascript");
     script_tag.setAttribute("src",
         "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js");
+    /*
     var bootstrap_script = document.createElement('script');
     bootstrap_script.setAttribute("type", "text/javascript");
     bootstrap_script.setAttribute("integrity", "sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1");
@@ -25,6 +26,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     bootstrapmd_script.setAttribute("type", "text/javascript")
     bootstrapmd_script.setAttribute("src", 
       "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js")
+    */
     if (script_tag.readyState) {
       script_tag.onreadystatechange = function () { // For old versions of IE
           if (this.readyState == 'complete' || this.readyState == 'loaded') {
@@ -36,9 +38,9 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
     }
     // Try to find the head, otherwise default to the documentElement
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
-    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popper_script);
-    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
-    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrapmd_script);
+    //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popper_script);
+    //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_script);
+    //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrapmd_script);
 
 } else {
     // The jQuery version on the window is the one we want to use
@@ -70,19 +72,19 @@ function main() {
         popup_styles.setAttribute("rel", "stylesheet");
         popup_styles.setAttribute("href", "https://stagingserver.xyz/static/css/popup.css");
         
-        var bootstrap_styles = document.createElement('link');
-        bootstrap_styles.setAttribute("rel", "stylesheet");
-        bootstrap_styles.setAttribute("href", "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css");
-        bootstrap_styles.setAttribute("integrity", "sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M");
-        bootstrap_styles.setAttribute("crossorigin","anonymous"); 
+        //var bootstrap_styles = document.createElement('link');
+        //bootstrap_styles.setAttribute("rel", "stylesheet");
+        //bootstrap_styles.setAttribute("href", "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css");
+        //bootstrap_styles.setAttribute("integrity", "sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M");
+        //bootstrap_styles.setAttribute("crossorigin","anonymous"); 
 
-        var bootstrapmd_styles = document.createElement('link');
-        bootstrapmd_styles.setAttribute("rel", "stylesheet");
-        bootstrapmd_styles.setAttribute("href", "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css");
+        //var bootstrapmd_styles = document.createElement('link');
+        //bootstrapmd_styles.setAttribute("rel", "stylesheet");
+        //bootstrapmd_styles.setAttribute("href", "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css");
 
         (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popup_styles);
-        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_styles);
-        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrapmd_styles);
+        //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrap_styles);
+        //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrapmd_styles);
 
         jQuery.fn.shake = function (interval, distance, times) {
             interval = typeof interval == "undefined" ? 100 : interval;
@@ -107,13 +109,13 @@ function main() {
         // We can use jQuery 1.4.2 here
         
         jQuery('body').append(
-          '<a href="" id="surpriseButton" data-toggle="modal" data-target="#centralModalSuccess">' +
+          '<a href="popup1">' +
           '<div style="position: fixed; top: 45%; right: 0;">' +
           '<img style="width: 5em; height: 5em" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">' +
           '</div>' +
           '</a>'
           )
-        /*
+        
         jQuery('body').append(
           '<div id="popup1" class="overlay">' +
           '<div class="popup">' +
@@ -123,11 +125,11 @@ function main() {
           '</div>' +
           '</div>'
           )
-        */
+        /*
         jQuery('body').append('<div class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> <div class="modal-dialog modal-notify{% if widget.form_type is 'color_form' %}{{widgte.color_form_color}}{% endif %}" role="document"> <div class="modal-content">{% if widget.form_type is 'color_form' %}<div class="modal-header"> <p class="heading lead">{{widget.title}}</p><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true" class="white-text">&times;</span> </button> </div>{% endif %}<div class="modal-body">{% if widget.form_type is 'color_form' %}<div class="text-center"> <i class="{{widget.color_form_icon}}{{widget.color_form_icon_size}}mb-3{{widget.color_form_animated}}"></i> <p>{{widget.offer}}</p></div>{% elif widget.form_type is 'person_form' %}<div class="row"> <div class="col-3 text-center">{#% avatar widget.user class="img-fluid z-depth-1-half rounded-circle" alt="user.full_name" id="user_avatar" %#}<div style="height: 10px"></div><p class="title mb-0">{{widget.user.full_name}}</p><p class="text-muted " style="font-size: 13px">{{widget.user.profession}}</p></div><div class="col-9"> <p><strong>{{widget.offer}}</strong></p><p>{{widget.text}}</p></div></div>{% elif widget.form_type is 'image_form' %}<div class="card card-image" style="background-image: url('{{widget.image}}'); width: 28rem;"> <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4"> </div></div>{% endif %}</div>{% if widget.form_type is not 'image_form' %}<div class="modal-footer justify-content-center"> <a type="button" class="btn btn-primary-modal">{{button.text}}<i class="{{button.icon}}{{button.icon_size}}mb-3"></i></a> <a type="button" class="btn btn-outline-secondary-modal waves-effect" data-dismiss="modal">{{button_cancel.text}}</a> </div>{% endif %}</div></div></div>');
         surprise = jQuery('#surprise');
         surprise.shake(100,2.5,300);
-
+        */
         alert('ready');
         console.log('fuck that shit!')
     });
