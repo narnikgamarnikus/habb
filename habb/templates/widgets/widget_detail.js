@@ -134,6 +134,7 @@ function main() {
         */
 
         var data = JSON.stringify({
+          "widget": "{{ object.pk }}"
           "email": "test@test.com",
           "phone_number": "+375259075055",
           "first_name": "Test",
