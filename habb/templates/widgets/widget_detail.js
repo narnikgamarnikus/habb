@@ -1,6 +1,6 @@
 {% load token %}
 
-    var bootstrap_script = document.createElement('script');
+    bootstrap_script = document.createElement('script');
     bootstrap_script.setAttribute("type", "text/javascript");
     bootstrap_script.setAttribute("integrity", "sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1");
     bootstrap_script.setAttribute("crossorigin", "anonymous");
