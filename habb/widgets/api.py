@@ -1,7 +1,7 @@
 from tastypie import fields
 from .models import Leed, Widget
 from tastypie.resources import ModelResource
-from tastypie.authentication import BasicAuthentication, MultiAuthentication
+from tastypie.authentication import BasicAuthentication, MultiAuthentication, ApiKeyAuthentication
 from tastypie.authorization import DjangoAuthorization
 from .authentication import CryptographicApiKeyAuthentication
 
@@ -12,7 +12,8 @@ class WidgetResource(ModelResource):
 		authorization = DjangoAuthorization()
 		authentication = MultiAuthentication(
 			#BasicAuthentication(),
-			CryptographicApiKeyAuthentication()
+			#CryptographicApiKeyAuthentication(),
+			ApiKeyAuthentication()
 			)
 
 
@@ -26,5 +27,6 @@ class LeedResource(ModelResource):
 		authorization = DjangoAuthorization()
 		authentication = MultiAuthentication(
 			#BasicAuthentication(), 
-			CryptographicApiKeyAuthentication()
+			#CryptographicApiKeyAuthentication(),
+			ApiKeyAuthentication()
 			)
