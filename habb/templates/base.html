@@ -14,10 +14,19 @@
     <![endif]-->
 
     {% block css %}
-    <!-- Latest compiled and minified Bootstrap 4 Alpha 4 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/compiled.min.css' %}">
+    <style>
+      .dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:focus, .dropdown .dropdown-menu .dropdown-item:hover {
+        background: #fc466b;
+      }
+      .navbar.navbar-light .breadcrumb .nav-item .nav-link, .navbar.navbar-light .navbar-nav .nav-item .nav-link {
+        color: #FFF;
+      }
+      .navbar-light .navbar-brand, .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+        color: #FFF;
+      }
+    </style>
     <!-- Your stuff: Third-party CSS libraries go here -->
     {% compress css %}
     {% block include_css %}
@@ -31,47 +40,61 @@
 
   <body>
 
-    <div class="m-b-1">
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'home' %}">habb</a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>
-            {% if request.user.is_authenticated %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
-              </li>
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
-              </li>
-            {% else %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
-              </li>
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
-              </li>
-            {% endif %}
-          </ul>
-        </div>
+  <!--Main Navigation-->
+  <header>
+
+      <!--Navbar-->
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar">
+          <div class="container">
+              <a class="navbar-brand" href="#"><strong>MDB</strong></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                  <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Link</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Profile</a>
+                      </li>
+                  </ul>
+
+                  <div class="dropdown">
+                      <button style="background: #fc466b" class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ LANGUAGE_CODE }}
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                          {% get_current_language as LANGUAGE_CODE %}
+                          {% get_available_languages as LANGUAGES %}
+                          {% get_language_info_list for LANGUAGES as languages %}
+                          {% for language in languages %}
+                          <a class="dropdown-item {% if language.code == LANGUAGE_CODE %}disabled{% endif %}" href="#" onclick="setLanguage('{{ language.code }}');">{{ language.name_local }} ({{ language.code }})</a>
+                          {% endfor %}
+
+                      </div>
+                  </div>
+                  <form id="languageForm" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                    <input name="next" type="hidden" value="{{ redirect_to }}" />
+                    <select name="language">
+                      <option id="languageFormOption" value="">
+                    </select>
+                  </form>
+              </div>
+          </div>
       </nav>
 
-    </div>
+      {% block intro %}
+      {% endblock intro %}
 
-    <div class="container">
+  </header>
+  <!--Main Navigation-->
+                
+
 
       {% if messages %}
           {% for message in messages %}
@@ -80,36 +103,24 @@
       {% endif %}
 
       {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
-
-          <script type="text/javascript" id="dclg-impact-indicators-embedder-5b8cf3a4-b0f0-13e9-3737-d5a159268ae6" class="dclg-impact-indicators-async-script-loader">
-            var s = document.createElement('script');
-            s.type = 'text/javascript';
-            s.async = true;
-            s.src = 'https://stagingserver.xyz/static/js/widget.js';
-            var embedder = document.getElementById('dclg-impact-indicators-embedder-5b8cf3a4-b0f0-13e9-3737-d5a159268ae6');
-            embedder.parentNode.insertBefore(s, embedder);
-          </script>
 
       {% endblock content %}
-
-    </div> <!-- /container -->
-
+    
     {% block modal %}{% endblock modal %}
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     {% block javascript %}
-      <!-- Required by Bootstrap v4 Alpha 4 -->
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
+      <script type="text/javascript" src="{% static 'js/compiled.min.js' %}"></script>
+      <script>
+          new WOW().init();
+      </script>
+      <script>
+        setLanguage = function(language){
 
-      <!-- Your stuff: Third-party javascript libraries go here -->
+          option = document.getElementById("languageFormOption");
+          option.setAttribute("value", language);
+          document.getElementById("languageForm").submit();
 
-      <!-- place project specific Javascript in this file -->
+        }
+      </script>
       {% compress js %}
       <script src="{% static 'js/project.js' %}"></script>
       {% endcompress %}
@@ -117,6 +128,56 @@
       {% endblock include_javascript %}
 
     {% endblock javascript %}
+
+<!--Footer-->
+<footer style="background: rgba(0, 0, 0, 0) linear-gradient(to right, rgb(252, 70, 107), rgb(63, 94, 251)) repeat scroll 0% 0%" class="page-footer center-on-small-only pt-0">
+
+    <!--Footer Links-->
+    <div class="container">
+
+        <!--First row-->
+        <div class="row">
+
+            <!--First column-->
+            <div class="col-md-12">
+
+                <div class="footer-socials mb-5 flex-center">
+                    <!--Vk-->
+                    <a class="icons-sm vk-ic"><i class="fa fa-vk fa-lg white-text mr-md-4"> </i></a>
+                    <!--Odnoklassniki-->
+                    <a class="icons-sm od-ic"><i class="fa fa-odnoklassniki fa-lg white-text mr-md-4"> </i></a>
+                    <!--Facebook-->
+                    <a class="icons-sm fb-ic"><i class="fa fa-facebook fa-lg white-text mr-md-4"> </i></a>
+                    <!--Twitter-->
+                    <a class="icons-sm tw-ic"><i class="fa fa-twitter fa-lg white-text mr-md-4"> </i></a>
+                    <!--Google +-->
+                    <a class="icons-sm gplus-ic"><i class="fa fa-google-plus fa-lg white-text mr-md-4"> </i></a>
+                    <!--Linkedin-->
+                    <a class="icons-sm li-ic"><i class="fa fa-linkedin fa-lg white-text mr-md-4"> </i></a>
+                    <!--Instagram-->
+                    <a class="icons-sm ins-ic"><i class="fa fa-instagram fa-lg white-text mr-md-4"> </i></a>
+                    <!--Pinterest-->
+                    <a class="icons-sm pin-ic"><i class="fa fa-pinterest fa-lg white-text"> </i></a>
+                </div>
+            </div>
+            <!--/First column-->
+        </div>
+        <!--/First row-->
+    </div>
+    <!--/Footer Links-->
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="container-fluid">
+            © 2016 Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
+        </div>
+    </div>
+    <!--/Copyright-->
+
+</footer>
+<!--/Footer-->    
   </body>
 </html>
  
+
+

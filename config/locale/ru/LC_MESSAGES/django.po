@@ -1,0 +1,739 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-26 16:22+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: habb/gamers/apps.py:7 habb/gamers/models.py:23
+msgid "Игрок"
+msgstr ""
+
+#: habb/gamers/models.py:10
+msgid "Имя"
+msgstr ""
+
+#: habb/gamers/models.py:11
+msgid "Фамилия"
+msgstr ""
+
+#: habb/gamers/models.py:13
+msgid "Капитан"
+msgstr ""
+
+#: habb/gamers/models.py:14
+msgid "Номер телефона"
+msgstr ""
+
+#: habb/gamers/models.py:24 habb/teams/models.py:9
+msgid "Игроки"
+msgstr ""
+
+#: habb/games/apps.py:7 habb/games/models.py:18
+msgid "Игра"
+msgstr ""
+
+#: habb/games/apps.py:8 habb/games/models.py:19
+msgid "Игры"
+msgstr ""
+
+#: habb/games/models.py:10 habb/groups/apps.py:7 habb/groups/models.py:25
+msgid "Группа"
+msgstr ""
+
+#: habb/games/models.py:11
+msgid "Дата старта"
+msgstr ""
+
+#: habb/games/models.py:12
+msgid "Дата окончания"
+msgstr ""
+
+#: habb/groups/apps.py:8 habb/groups/models.py:26
+msgid "Группы"
+msgstr ""
+
+#: habb/groups/models.py:12
+msgid "Комманды"
+msgstr ""
+
+#: habb/groups/models.py:13
+msgid "Сервер"
+msgstr ""
+
+#: habb/groups/models.py:14
+msgid "Пароль"
+msgstr ""
+
+#: habb/groups/models.py:15 habb/maps/apps.py:7 habb/maps/models.py:18
+msgid "Карта"
+msgstr ""
+
+#: habb/maps/apps.py:8 habb/maps/models.py:19
+msgid "Карты"
+msgstr ""
+
+#: habb/maps/models.py:12
+msgid "Название карты"
+msgstr ""
+
+#: habb/teams/apps.py:7 habb/teams/models.py:17
+msgid "Команда"
+msgstr ""
+
+#: habb/teams/apps.py:8 habb/teams/models.py:18
+msgid "Команды"
+msgstr ""
+
+#: habb/teams/models.py:10
+msgid "Название команды"
+msgstr ""
+
+#: habb/templates/account/account_inactive.html:5
+#: habb/templates/account/account_inactive.html:8
+msgid "Account Inactive"
+msgstr ""
+
+#: habb/templates/account/account_inactive.html:10
+msgid "This account is inactive."
+msgstr ""
+
+#: habb/templates/account/email.html:7
+msgid "Account"
+msgstr ""
+
+#: habb/templates/account/email.html:10
+msgid "E-mail Addresses"
+msgstr ""
+
+#: habb/templates/account/email.html:13
+msgid "The following e-mail addresses are associated with your account:"
+msgstr ""
+
+#: habb/templates/account/email.html:27
+msgid "Verified"
+msgstr ""
+
+#: habb/templates/account/email.html:29
+msgid "Unverified"
+msgstr ""
+
+#: habb/templates/account/email.html:31
+msgid "Primary"
+msgstr ""
+
+#: habb/templates/account/email.html:37
+msgid "Make Primary"
+msgstr ""
+
+#: habb/templates/account/email.html:38
+msgid "Re-send Verification"
+msgstr ""
+
+#: habb/templates/account/email.html:39
+msgid "Remove"
+msgstr ""
+
+#: habb/templates/account/email.html:46
+msgid "Warning:"
+msgstr ""
+
+#: habb/templates/account/email.html:46
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+
+#: habb/templates/account/email.html:51
+msgid "Add E-mail Address"
+msgstr ""
+
+#: habb/templates/account/email.html:56
+msgid "Add E-mail"
+msgstr ""
+
+#: habb/templates/account/email.html:66
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr ""
+
+#: habb/templates/account/email_confirm.html:6
+#: habb/templates/account/email_confirm.html:10
+msgid "Confirm E-mail Address"
+msgstr ""
+
+#: habb/templates/account/email_confirm.html:16
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+
+#: habb/templates/account/email_confirm.html:20
+msgid "Confirm"
+msgstr ""
+
+#: habb/templates/account/email_confirm.html:27
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+
+#: habb/templates/account/login.html:7 habb/templates/account/login.html:11
+#: habb/templates/account/login.html:44 habb/templates/pages/head.html:34
+msgid "Sign In"
+msgstr ""
+
+#: habb/templates/account/login.html:16
+#, python-format
+msgid ""
+"Please sign in with one\n"
+"of your existing third party accounts. Or, <a href=\"%(signup_url)s\">sign "
+"up</a>\n"
+"for a %(site_name)s account and sign in below:"
+msgstr ""
+
+#: habb/templates/account/login.html:26
+msgid "or"
+msgstr ""
+
+#: habb/templates/account/login.html:33
+#, python-format
+msgid ""
+"If you have not created an account yet, then please\n"
+"<a href=\"%(signup_url)s\">sign up</a> first."
+msgstr ""
+
+#: habb/templates/account/login.html:43
+msgid "Forgot Password?"
+msgstr ""
+
+#: habb/templates/account/logout.html:5 habb/templates/account/logout.html:8
+#: habb/templates/account/logout.html:17 habb/templates/pages/head.html:25
+msgid "Sign Out"
+msgstr ""
+
+#: habb/templates/account/logout.html:10
+msgid "Are you sure you want to sign out?"
+msgstr ""
+
+#: habb/templates/account/password_change.html:6
+#: habb/templates/account/password_change.html:9
+#: habb/templates/account/password_change.html:14
+#: habb/templates/account/password_reset_from_key.html:5
+#: habb/templates/account/password_reset_from_key.html:8
+#: habb/templates/account/password_reset_from_key_done.html:4
+#: habb/templates/account/password_reset_from_key_done.html:7
+msgid "Change Password"
+msgstr ""
+
+#: habb/templates/account/password_reset.html:7
+#: habb/templates/account/password_reset.html:11
+#: habb/templates/account/password_reset_done.html:6
+#: habb/templates/account/password_reset_done.html:9
+msgid "Password Reset"
+msgstr ""
+
+#: habb/templates/account/password_reset.html:16
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
+msgstr ""
+
+#: habb/templates/account/password_reset.html:21
+msgid "Reset My Password"
+msgstr ""
+
+#: habb/templates/account/password_reset.html:24
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+
+#: habb/templates/account/password_reset_done.html:15
+msgid ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+
+#: habb/templates/account/password_reset_from_key.html:8
+msgid "Bad Token"
+msgstr ""
+
+#: habb/templates/account/password_reset_from_key.html:12
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+
+#: habb/templates/account/password_reset_from_key.html:18
+msgid "change password"
+msgstr ""
+
+#: habb/templates/account/password_reset_from_key.html:21
+#: habb/templates/account/password_reset_from_key_done.html:8
+msgid "Your password is now changed."
+msgstr ""
+
+#: habb/templates/account/password_set.html:6
+#: habb/templates/account/password_set.html:9
+#: habb/templates/account/password_set.html:14
+msgid "Set Password"
+msgstr ""
+
+#: habb/templates/account/signup.html:6
+msgid "Signup"
+msgstr ""
+
+#: habb/templates/account/signup.html:9 habb/templates/account/signup.html:19
+#: habb/templates/pages/head.html:30
+msgid "Sign Up"
+msgstr ""
+
+#: habb/templates/account/signup.html:11
+#, python-format
+msgid ""
+"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+msgstr ""
+
+#: habb/templates/account/signup_closed.html:5
+#: habb/templates/account/signup_closed.html:8
+msgid "Sign Up Closed"
+msgstr ""
+
+#: habb/templates/account/signup_closed.html:10
+msgid "We are sorry, but the sign up is currently closed."
+msgstr ""
+
+#: habb/templates/account/verification_sent.html:5
+#: habb/templates/account/verification_sent.html:8
+#: habb/templates/account/verified_email_required.html:5
+#: habb/templates/account/verified_email_required.html:8
+msgid "Verify Your E-mail Address"
+msgstr ""
+
+#: habb/templates/account/verification_sent.html:10
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+
+#: habb/templates/account/verified_email_required.html:12
+msgid ""
+"This part of the site requires us to verify that\n"
+"you are who you claim to be. For this purpose, we require that you\n"
+"verify ownership of your e-mail address. "
+msgstr ""
+
+#: habb/templates/account/verified_email_required.html:16
+msgid ""
+"We have sent an e-mail to you for\n"
+"verification. Please click on the link inside this e-mail. Please\n"
+"contact us if you do not receive it within a few minutes."
+msgstr ""
+
+#: habb/templates/account/verified_email_required.html:20
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
+"mail address</a>."
+msgstr ""
+
+#: habb/templates/pages/head.html:21
+msgid "My Profile"
+msgstr ""
+
+#: habb/templates/pages/home.html:13
+#, python-format
+msgid "Increase your social traffic by 341%% from 13 days"
+msgstr "Увеличьте трафик из социальный сетей на 341%% за 13 дней"
+
+#: habb/templates/pages/home.html:15
+msgid ""
+"With a <strong>simple</strong> and <strong>free</strong> widget.<br/>Without "
+"the help of programmers, without limiting the number of visits to your site."
+msgstr ""
+
+#: habb/templates/pages/home.html:18
+msgid "Sign up"
+msgstr ""
+
+#: habb/templates/pages/home.html:19
+msgid "Learn more"
+msgstr ""
+
+#: habb/templates/pages/home.html:64
+msgid "Three steps to increace your traffic"
+msgstr ""
+
+#: habb/templates/pages/home.html:70
+msgid "Create widget"
+msgstr ""
+
+#: habb/templates/pages/home.html:73
+msgid "Create offer"
+msgstr ""
+
+#: habb/templates/pages/home.html:76
+msgid "Share link"
+msgstr ""
+
+#: habb/templates/pages/home.html:84
+msgid ""
+"Create a widget, post the code on the site or get a new link to your site."
+msgstr ""
+
+#: habb/templates/pages/home.html:90
+msgid "Think of a proposal that is foolish to refuse."
+msgstr ""
+
+#: habb/templates/pages/home.html:96
+msgid ""
+"Place a link to your site on social networks so that others can learn about "
+"your promotion."
+msgstr ""
+
+#: habb/templates/pages/home.html:110
+msgid "Why is it so great?"
+msgstr ""
+
+#: habb/templates/pages/home.html:112
+msgid ""
+"Offer your users real value for filling our form, and get a huge number of "
+"new visitors to your site who also want to receive a gift."
+msgstr ""
+
+#: habb/templates/pages/home.html:126
+msgid "Increase social shares"
+msgstr ""
+
+#: habb/templates/pages/home.html:127
+msgid ""
+"In order to participate in your campaign, you need to talk about this in "
+"social networks."
+msgstr ""
+
+#: habb/templates/pages/home.html:138
+msgid "Personality"
+msgstr ""
+
+#: habb/templates/pages/home.html:139
+msgid ""
+"Get profiles on social networks, phone numbers and e-mails of the "
+"participants in your contest."
+msgstr ""
+
+#: habb/templates/pages/home.html:150
+msgid "Email and SMS sending"
+msgstr ""
+
+#: habb/templates/pages/home.html:151
+msgid "Send email and SMS to all your members."
+msgstr ""
+
+#: habb/templates/pages/home.html:174
+msgid "Calling"
+msgstr ""
+
+#: habb/templates/pages/home.html:175
+msgid "Record an audio file and set up a call for all your members."
+msgstr ""
+
+#: habb/templates/pages/home.html:186
+msgid "Reports"
+msgstr ""
+
+#: habb/templates/pages/home.html:187
+msgid "Receive regular reports on the conducted actions."
+msgstr ""
+
+#: habb/templates/pages/home.html:198
+msgid "Analytics"
+msgstr ""
+
+#: habb/templates/pages/home.html:199
+msgid ""
+"Analysts and A/B testing of your widgets, to better understand which offer "
+"works best."
+msgstr ""
+
+#: habb/templates/pages/home.html:227
+msgid "Try it now"
+msgstr ""
+
+#: habb/templates/pages/home.html:232
+msgid "Link to your website"
+msgstr ""
+
+#: habb/templates/pages/home.html:235
+msgid "Create link"
+msgstr ""
+
+#: habb/templates/pages/home.html:258 habb/users/models.py:17
+msgid "Free"
+msgstr ""
+
+#: habb/templates/pages/home.html:266
+msgid "<strong>1</strong> active widget"
+msgstr ""
+
+#: habb/templates/pages/home.html:269
+msgid "<strong>1</strong> active link"
+msgstr ""
+
+#: habb/templates/pages/home.html:272
+msgid "<strong>1</strong> widget skin"
+msgstr ""
+
+#: habb/templates/pages/home.html:275
+msgid "<strong>Unlimited</strong> traffic"
+msgstr ""
+
+#: habb/templates/pages/home.html:278 habb/templates/pages/home.html:319
+#: habb/templates/pages/home.html:376
+msgid "Buy now"
+msgstr ""
+
+#: habb/templates/pages/home.html:296
+msgid "Basic"
+msgstr ""
+
+#: habb/templates/pages/home.html:304 habb/templates/pages/home.html:343
+msgid "<strong>Unlimited</strong> active widgets"
+msgstr ""
+
+#: habb/templates/pages/home.html:307 habb/templates/pages/home.html:346
+msgid "<strong>Unlimited</strong> active links"
+msgstr ""
+
+#: habb/templates/pages/home.html:310
+msgid "<strong>Unlimited</strong> widget skins"
+msgstr ""
+
+#: habb/templates/pages/home.html:313
+msgid "<strong>Personal</strong> widget"
+msgstr ""
+
+#: habb/templates/pages/home.html:316
+msgid "<strong>Weekly</strong> reports"
+msgstr ""
+
+#: habb/templates/pages/home.html:335
+msgid "Pro"
+msgstr ""
+
+#: habb/templates/pages/home.html:349
+msgid "<strong>Customizable</strong> widget"
+msgstr ""
+
+#: habb/templates/pages/home.html:352
+msgid "<strong>Social</strong> profiles"
+msgstr ""
+
+#: habb/templates/pages/home.html:355
+msgid "<strong>Daily</strong> reports"
+msgstr ""
+
+#: habb/templates/pages/home.html:358
+msgid "<strong>Analytics</strong>"
+msgstr ""
+
+#: habb/templates/pages/home.html:361
+msgid "<strong>A/B Testing</strong>"
+msgstr ""
+
+#: habb/templates/pages/home.html:364
+msgid "<strong>Sales funnel</strong>"
+msgstr ""
+
+#: habb/templates/pages/home.html:367
+msgid "<strong>SMS, Email, Instants</strong>"
+msgstr ""
+
+#: habb/templates/pages/home.html:370
+msgid "<strong>Calling</strong>"
+msgstr ""
+
+#: habb/templates/pages/home.html:373
+msgid "<strong>Branding</strong> widget"
+msgstr ""
+
+#: habb/templates/widgets/leed_detail.html:14
+msgid "Referals count: "
+msgstr ""
+
+#: habb/templates/widgets/leed_detail.html:15
+msgid "Email: "
+msgstr ""
+
+#: habb/templates/widgets/leed_detail.html:16
+msgid "SMS: "
+msgstr ""
+
+#: habb/templates/widgets/leed_detail.html:17
+msgid "Telegram: "
+msgstr ""
+
+#: habb/templates/widgets/leed_detail.html:18
+msgid "Call: "
+msgstr ""
+
+#: habb/users/models.py:18
+msgid "Bronze"
+msgstr ""
+
+#: habb/users/models.py:19
+msgid "Silver"
+msgstr ""
+
+#: habb/users/models.py:20
+msgid "Gold"
+msgstr ""
+
+#: habb/users/models.py:29
+msgid "Name of User"
+msgstr ""
+
+#: habb/widgets/models.py:49
+msgid "Work"
+msgstr ""
+
+#: habb/widgets/models.py:50
+msgid "Stoped"
+msgstr ""
+
+#: habb/widgets/models.py:51
+msgid "End"
+msgstr ""
+
+#: habb/widgets/models.py:55
+msgid "Random"
+msgstr ""
+
+#: habb/widgets/models.py:56
+msgid "Leeds"
+msgstr ""
+
+#: habb/widgets/models.py:60
+msgid "Email"
+msgstr ""
+
+#: habb/widgets/models.py:61
+msgid "phone_number"
+msgstr ""
+
+#: habb/widgets/models.py:62 habb/widgets/models.py:64
+msgid "First name"
+msgstr ""
+
+#: habb/widgets/models.py:63
+msgid "Last name"
+msgstr ""
+
+#: habb/widgets/models.py:214
+msgid "One time"
+msgstr ""
+
+#: habb/widgets/models.py:214
+msgid "Daily"
+msgstr ""
+
+#: habb/widgets/models.py:214
+msgid "Weekly"
+msgstr ""
+
+#: habb/widgets/models.py:214
+msgid "Monthly"
+msgstr ""
+
+#: habb/widgets/models.py:214
+msgid "Yearly"
+msgstr ""
+
+#: habb/widgets/models.py:218
+msgid "Frequency of sending"
+msgstr ""
+
+#: habb/widgets/models.py:222
+msgid "Complete"
+msgstr ""
+
+#: habb/widgets/models.py:234 habb/widgets/models.py:273
+#: habb/widgets/models.py:303 habb/widgets/models.py:332
+msgid "Created"
+msgstr ""
+
+#: habb/widgets/models.py:234 habb/widgets/models.py:273
+#: habb/widgets/models.py:303 habb/widgets/models.py:332
+msgid "Scheduled"
+msgstr ""
+
+#: habb/widgets/models.py:234 habb/widgets/models.py:273
+#: habb/widgets/models.py:303
+msgid "Sent"
+msgstr ""
+
+#: habb/widgets/models.py:234
+msgid "Opened"
+msgstr ""
+
+#: habb/widgets/models.py:234
+msgid "Clicked"
+msgstr ""
+
+#: habb/widgets/models.py:236 habb/widgets/models.py:275
+#: habb/widgets/models.py:305 habb/widgets/models.py:334
+msgid "Status"
+msgstr ""
+
+#: habb/widgets/models.py:249
+msgid "Email scheduled at"
+msgstr ""
+
+#: habb/widgets/models.py:253
+msgid "Email sent at"
+msgstr ""
+
+#: habb/widgets/models.py:257
+msgid "Email opened at"
+msgstr ""
+
+#: habb/widgets/models.py:261
+msgid "Email clicked at"
+msgstr ""
+
+#: habb/widgets/models.py:287 habb/widgets/models.py:316
+msgid "SMS sheduled at"
+msgstr ""
+
+#: habb/widgets/models.py:291 habb/widgets/models.py:320
+msgid "SMS sent at"
+msgstr ""
+
+#: habb/widgets/models.py:332
+msgid "Called"
+msgstr ""
+
+#: habb/widgets/models.py:347
+msgid "Call scheduled at"
+msgstr ""
+
+#: habb/widgets/models.py:351
+msgid "Called at"
+msgstr ""

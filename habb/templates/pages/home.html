@@ -1,1 +1,387 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% block intro %}
+      <!-- Intro Section -->
+      <div class="view hm-purple-slight jarallax" data-jarallax='{"speed": 0.2}' style="background: rgba(0, 0, 0, 0) linear-gradient(to right, rgb(252, 70, 107), rgb(63, 94, 251)) repeat scroll 0% 0%" >
+          <div class="full-bg-img">
+              <div class="container flex-center">
+                  <div class="row pt-5 mt-3">
+                      <div class="col-md-12 wow fadeIn mb-3">
+                          <div class="text-center">
+                              <ul>
+                                  <li>
+                                      <h1 class="text-white display-4 font-bold mb-5 wow fadeInUp">{% trans 'Increase your social traffic by 341% from 13 days' %}</h1></li>
+                                  <li>
+                                      <h5 class="text-white mb-5 wow fadeInUp" data-wow-delay="0.2s">{% blocktrans %}With a <strong>simple</strong> and <strong>free</strong> widget.<br/>Without the help of programmers, without limiting the number of visits to your site.{% endblocktrans %}</h5>
+                                  </li>
+                                  <li class="wow fadeInUp" data-wow-delay="0.4s">
+                                      <a class="btn btn-rounded" style="background: #fc466b"><i class="fa fa-user left"></i>{% trans 'Sign up' %}!</a>
+                                      <a class="btn btn-rounded" style="border: 2px solid #fc466b;"><i class="fa fa-book left"></i>{% trans 'Learn more' %}</a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+
+    <!-- Main Layout -->
+    <main>
+
+        <div class="container">
+            
+            <!-- Grid row -->
+            <div class="row py-5 mt-4">
+
+                <!-- Grid column -->
+                <div class="col-md-12 text-center">
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+
+    </main>
+    <!-- Main Layout -->
+
+
+<div class="container">
+	
+	<h1 class="section-heading pt-4">{% trans 'Three steps to increace your traffic' %}</h1>
+	<br/>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs nav-justified" style="background: #fc466b" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#panel5" role="tab">{% trans 'Create widget' %}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#panel6" role="tab">{% trans 'Create offer' %}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#panel7" role="tab">{% trans 'Share link' %}</a>
+    </li>
+</ul>
+<!-- Tab panels -->
+<div class="tab-content text-center">
+    <!--Panel 1-->
+    <div class="tab-pane fade in show active" id="panel5" role="tabpanel">
+        <br>
+        <p>{% trans 'Create a widget, post the code on the site or get a new link to your site.' %}</p>
+    </div>
+    <!--/.Panel 1-->
+    <!--Panel 2-->
+    <div class="tab-pane fade" id="panel6" role="tabpanel">
+        <br>
+        <p>{% trans 'Think of a proposal that is foolish to refuse.' %}</p>
+    </div>
+    <!--/.Panel 2-->
+    <!--Panel 3-->
+    <div class="tab-pane fade" id="panel7" role="tabpanel">
+        <br>
+        <p>{% trans 'Place a link to your site on social networks so that others can learn about your promotion.' %}</p>
+    </div>
+    <!--/.Panel 3-->
+</div>
+                            
+
+</div>
+
+
+<div class="container">
+	<!--Section: Features v.4-->
+	<section class="section feature-box">
+
+	    <!--Section heading-->
+	    <h1 class="section-heading pt-4">{% trans 'Why is it so great?' %}</h1>
+	    <!--Section description-->
+	    <p class="section-description lead grey-text">{% trans 'Offer your users real value for filling our form, and get a huge number of new visitors to your site who also want to receive a gift.' %}</p>
+
+	    <!--Grid row-->
+	    <div class="row features-small">
+
+	        <!--Grid column-->
+	        <div class="col-md-4">
+
+	            <!--Grid row-->
+	            <div class="row mb-2">
+	                <div class="col-2">
+	                    <i class="fa fa-share-alt blue-text"></i>
+	                </div>
+	                <div class="col-10">
+	                    <h5 class="feature-title">{% trans 'Increase social shares' %}</h5>
+	                    <p class="grey-text">{% trans 'In order to participate in your campaign, you need to talk about this in social networks.' %}</p>
+	                </div>
+	            </div>
+	            <!--Grid row-->
+
+	            <!--Grid row-->
+	            <div class="row mb-2">
+	                <div class="col-2">
+	                    <i class="fa fa-id-card-o blue-text"></i>
+	                </div>
+	                <div class="col-10">
+	                    <h5 class="feature-title">{% trans 'Personality' %}</h5>
+	                    <p class="grey-text">{% trans 'Get profiles on social networks, phone numbers and e-mails of the participants in your contest.' %}</p>
+	                </div>
+	            </div>
+	            <!--Grid row-->
+
+	            <!--Grid row-->
+	            <div class="row mb-2">
+	                <div class="col-2">
+	                    <i class="fa fa-envelope-o indigo-text"></i>
+	                </div>
+	                <div class="col-10">
+	                    <h5 class="feature-title">{% trans 'Email and SMS sending' %}</h5>
+	                    <p class="grey-text">{% trans 'Send email and SMS to all your members.' %}</p>
+	                </div>
+	            </div>
+	            <!--Grid row-->
+
+	        </div>
+	        <!--Grid column-->
+
+	        <!--Grid column-->
+	        <div class="col-md-4 mb-2 center-on-small-only flex-center">
+	            <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/iphone-portfolio1.png" alt="" class="z-depth-0">
+	        </div>
+	        <!--Grid column-->
+
+	        <!--Grid column-->
+	        <div class="col-md-4">
+
+	            <!--Grid row-->
+	            <div class="row mb-2">
+	                <div class="col-2">
+	                    <i class="fa fa-phone deep-purple-text"></i>
+	                </div>
+	                <div class="col-10">
+	                    <h5 class="feature-title">{% trans 'Calling' %}</h5>
+	                    <p class="grey-text">{% trans 'Record an audio file and set up a call for all your members.' %}</p>
+	                </div>
+	            </div>
+	            <!--Grid row-->
+
+	            <!--Grid row-->
+	            <div class="row mb-2">
+	                <div class="col-2">
+	                    <i class="fa fa-calendar purple-text"></i>
+	                </div>
+	                <div class="col-10">
+	                    <h5 class="feature-title">{% trans 'Reports' %}</h5>
+	                    <p class="grey-text">{% trans 'Receive regular reports on the conducted actions.' %}</p>
+	                </div>
+	            </div>
+	            <!--Grid row-->
+
+	            <!--Grid row-->
+	            <div class="row mb-2">
+	                <div class="col-2">
+	                    <i class="fa fa-bar-chart pink-text"></i>
+	                </div>
+	                <div class="col-10">
+	                    <h5 class="feature-title">{% trans 'Analytics' %}</h5>
+	                    <p class="grey-text">{% trans 'Analysts and A/B testing of your widgets, to better understand which offer works best.' %}</p>
+	                </div>
+	            </div>
+	            <!--Grid row-->
+
+	        </div>
+	        <!--Grid column-->
+
+	    </div>
+	    <!--Grid row-->
+
+	</section>
+	<!--/Section: Features v.4-->
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="clearfix"></div>
+
+
+<div class="container">
+	
+	<div class="row d-flex justify-content-center">
+		
+		<form style="width: 40rem">
+    		<p class="h5 text-center mb-4">{% trans 'Try it now' %}</p>
+    	
+    		<div class="md-form">
+        		<i class="fa fa-link prefix grey-text"></i>
+        		<input type="text" id="orangeForm-name" class="form-control">
+        		<label for="orangeForm-name">{% trans 'Link to your website' %}</label>
+    		</div>
+    		<div class="text-center">
+    		<a style="background: rgba(0, 0, 0, 0) linear-gradient(to right, rgb(252, 70, 107), rgb(63, 94, 251)) repeat scroll 0% 0%" class="btn btn-rounded waves-effect waves-light">{% trans 'Create link' %}</a>    
+    		</div>
+    	</form>
+
+	</div>
+
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="container">
+	<div class="row">
+
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-r">
+                    <!--Card-->
+                    <div class="pricing-card naked-card">
+
+                        <!--Content-->
+                        <div class="card-body">
+                            <h5>{% trans 'Free' %}</h5>
+                            <!--Price-->
+                            <div class="price">
+                                <h1 style="color: #fc466b">0</h1>
+                            </div>
+                            <!--Price-->
+                            <ul class="striped">
+                                <li>
+                                    <p>{% blocktrans %}<strong>1</strong> active widget{% endblocktrans %}</p>
+                                </li>
+                                <li>
+                                    <p>{% blocktrans %}<strong>1</strong> active link{% endblocktrans %}</p>
+                                </li>
+                                <li>
+                                    <p>{% blocktrans %}<strong>1</strong> widget skin{% endblocktrans %}</p>
+                                </li>
+                                <li>
+                                    <p>{% blocktrans %}<strong>Unlimited</strong> traffic{% endblocktrans %}</p>
+                                </li>
+                            </ul>
+                            <a style="background: #fc466b" class="btn btn-rounded waves-effect waves-light">{% trans 'Buy now' %}</a>
+                        </div>
+                    </div>
+                    <!--Card-->
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-r">
+
+                    <!-- Card -->
+                    <div class="card card-image" style="background: rgba(0, 0, 0, 0) linear-gradient(to right, rgb(252, 70, 107), rgb(63, 94, 251)) repeat scroll 0% 0%">
+
+                        <!-- Content -->
+                        <div class="text-white text-center pricing-card d-flex align-items-center py-3 px-3">
+
+                            <!--Content-->
+                            <div class="card-body">
+                                <h5>{% trans 'Basic' %}</h5>
+                                <!--Price-->
+                                <div class="price pt-0">
+                                    <h1>5</h1>
+                                </div>
+                                <!--Price-->
+                                <ul class="striped">
+                                    <li>
+                                        <p>{% blocktrans %}<strong>Unlimited</strong> active widgets{% endblocktrans %}</p>
+                                    </li>
+                                    <li>
+                                        <p>{% blocktrans %}<strong>Unlimited</strong> active links{% endblocktrans %}</p>
+                                    </li>
+                                    <li>
+                                        <p>{% blocktrans %}<strong>Unlimited</strong> widget skins{% endblocktrans %}</p>
+                                    </li>
+                                    <li>
+                                        <p>{% blocktrans %}<strong>Personal</strong> widget{% endblocktrans %}</p>
+                                    </li>
+									<li>
+                                        <p>{% blocktrans %}<strong>Weekly</strong> reports{% endblocktrans %}</p>
+                                    </li>
+                                </ul>
+                                <a class="btn btn-rounded btn-outline-white waves-effect waves-light" disabled>{% trans 'Buy now' %}</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Card-->
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-r">
+                    <!--Card-->
+                    <div class="pricing-card naked-card">
+
+                        <!--Content-->
+                        <div class="card-body">
+                            <h5>{% trans 'Pro' %}</h5>
+                            <!--Price-->
+                            <div class="price">
+                                <h1 style="color: #3f5efb">15</h1>
+                            </div>
+                            <!--Price-->
+                            <ul class="striped">
+                                <li>
+                                    <p>{% blocktrans %}<strong>Unlimited</strong> active widgets{% endblocktrans %}</p>
+                                </li>
+                                <li>
+                                    <p>{% blocktrans %}<strong>Unlimited</strong> active links{% endblocktrans %}</p>
+                                </li>
+                                <li>
+                                    <p>{% blocktrans %}<strong>Customizable</strong> widget{% endblocktrans %}</p>
+                                </li>
+								<li>
+                                    <p>{% blocktrans %}<strong>Social</strong> profiles{% endblocktrans %}</p>
+                                </li>
+                                <li>
+                                    <p>{% blocktrans %}<strong>Daily</strong> reports{% endblocktrans %}</p>
+                                </li>
+                                <li>
+                                    <p>{% blocktrans %}<strong>Analytics</strong>{% endblocktrans %}</p>
+                                </li>
+                                <li>
+                                    <p>{% blocktrans %}<strong>A/B Testing</strong>{% endblocktrans %}</p>
+                                </li>
+                                <li>
+                                    <p>{% blocktrans %}<strong>Sales funnel</strong>{% endblocktrans %}</p>
+                                </li>
+                                <li>
+                                    <p>{% blocktrans %}<strong>SMS, Email, Instants</strong>{% endblocktrans %}</p>
+                                </li>
+                                <li>
+                                    <p>{% blocktrans %}<strong>Calling</strong>{% endblocktrans %}</p>
+                                </li>
+								<li>
+                                    <p>{% blocktrans %}<strong>Branding</strong> widget{% endblocktrans %}</p>
+                                </li>                                                                                                          
+                            </ul>
+                            <a style="background: #3f5efb" class="btn btn-rounded waves-effect waves-light" disabled> {% trans 'Buy now' %}</a>                        
+                        </div>
+
+                    </div>
+                    <!--Card-->
+                </div>
+                <!--Grid column-->		
+
+
+    </div>
+</div>
+{% endblock intro %}

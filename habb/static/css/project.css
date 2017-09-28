@@ -1,5 +1,25 @@
 /* These styles are generated from project.scss. */
 
+.top-nav-collapse {
+    background: rgba(0, 0, 0, 0) linear-gradient(to right, rgb(252, 70, 107), rgb(63, 94, 251)) repeat scroll 0% 0%;
+}
+.navbar:not(.top-nav-collapse) {
+    background: transparent !important;
+}
+@media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+        background: rgba(0, 0, 0, 0) linear-gradient(to right, rgb(252, 70, 107), rgb(63, 94, 251)) repeat scroll 0% 0%;
+    } 
+}
+@media (max-width: 740px) {
+    .full-height,
+    .full-height body,
+    .full-height header,
+    .full-height header .view {
+        height: 700px; 
+    } 
+}
+
 .alert-debug {
   color: black;
   background-color: white;

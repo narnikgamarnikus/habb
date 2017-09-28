@@ -8,9 +8,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
 import environ
+import os
 
 ROOT_DIR = environ.Path(__file__) - 3  # (habb/config/settings/base.py - 3 = habb/)
 APPS_DIR = ROOT_DIR.path('habb')
+PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 
 # Load operating system environment variables and then prepare to use them
 env = environ.Env()
@@ -161,8 +163,16 @@ TIME_ZONE = 'UTC'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = 'ru-ru'
 
+LANGUAGES = (
+    ('ru', 'Russian'),
+    ('en', 'English'),
+)
+
+#LOCALE_PATHS = (
+#    str(APPS_DIR('locale')),
+#)
 LOCALE_PATHS = (
-    str(ROOT_DIR('locale')),
+    os.path.join(PROJECT_PATH, '../locale'),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id

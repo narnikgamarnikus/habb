@@ -1,4 +1,3 @@
-from tastypie.api import Api
 from django.conf import settings
 from django.contrib import admin
 from django.conf.urls import include, url
@@ -6,15 +5,9 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from django.conf.urls.i18n import i18n_patterns
 from django.views import defaults as default_views
-from habb.widgets.api import WidgetResource, LeedResource
 
 
-#v1_api = Api(api_name='v1')
-#v1_api.register(WidgetResource())
-#v1_api.register(LeedResource())
-
-
-urlpatterns = [
+urlpatterns = i18n_patterns(
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
 
@@ -37,8 +30,9 @@ urlpatterns = [
     #url(r'^rest-auth/facebook/$', FacebookLogin.as_view(), name='fb_login'),
     url(r'^avatar/', include('avatar.urls')),
     url(r'^api/', include('habb.widgets.api_urls')),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 #if not settings.DEBUG:
 #    urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
