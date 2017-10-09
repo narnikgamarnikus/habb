@@ -10,6 +10,7 @@ from django.views import defaults as default_views
 urlpatterns = i18n_patterns(
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
+    url(r'^widget/$', TemplateView.as_view(template_name='pages/widget.html'), name='widget'),
 
     url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
     # Django Admin, use {% url 'admin:index' %}

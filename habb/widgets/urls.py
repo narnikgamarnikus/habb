@@ -9,10 +9,15 @@ urlpatterns = [
         name='widget_list'
     ),
     url(
-        regex=r'^widget/(?P<token>[^/]+).js/$',
-        view=views.WidgetDetailView.as_view(),
-        name='widget_detail'
-    ),    
+        regex=r'^widgetjs/(?P<token>[^/]+).js/$',
+        view=views.WidgetJSDetailView.as_view(),
+        name='widget_js_detail'
+    ),
+    url(
+        regex=r'^widgethtml/(?P<token>[^/]+)/$',
+        view=views.WidgetHTMLDetailView.as_view(),
+        name='widget_HTML_detail'
+    ),        
     url(
         regex=r'^widget/~create/$',
         view=views.WidgetCreateView.as_view(),

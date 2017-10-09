@@ -78,3 +78,5 @@ CELERY_ALWAYS_EAGER = True
 
 # Your local stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+
+X_FRAME_OPTIONS = 'ALLOW-ALL'

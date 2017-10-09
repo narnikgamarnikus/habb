@@ -23,7 +23,7 @@ class WidgetCreateView(LoginRequiredMixin, CreateView):
         return kwargs
 
 
-class WidgetDetailView(LoginRequiredMixin, DetailView):
+class WidgetJSDetailView(LoginRequiredMixin, DetailView):
     model = Widget 
     slug_field = 'token'
     slug_url_kwarg = 'token'
@@ -31,7 +31,7 @@ class WidgetDetailView(LoginRequiredMixin, DetailView):
     content_type = 'application/javascript'
 
     def get_context_data(self, *args, **kwargs):
-        context = super(WidgetDetailView, self).get_context_data(*args, **kwargs)
+        context = super(WidgetJSDetailView, self).get_context_data(*args, **kwargs)
         self.object.website.user.generate_token()
         context['user_token'] = self.object.website.user.encode_user_token()
         context['opened'] = self.object.opened + 1
@@ -46,6 +46,12 @@ class WidgetDetailView(LoginRequiredMixin, DetailView):
         return self.render_to_response(context)
 
 
+class WidgetHTMLDetailView(LoginRequiredMixin, DetailView):
+    model = Widget 
+    slug_field = 'token'
+    slug_url_kwarg = 'token'
+    template_name = 'widgets/widget_base.html'
+    #content_type = 'application/javascript'
 
 class WidgetRedirectView(LoginRequiredMixin, RedirectView):
     permanent = False

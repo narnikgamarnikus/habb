@@ -3,9 +3,19 @@
 
 // Localize jQuery variable
 var jQuery;
+//var iFrame = document.createElement("iframe");
+//iFrame.setAttribute("id", "iFrame");
+//iFrame.setAttribute("src", "http://127.0.0.1:8000/en/widgets/widgethtml/e22ec752-cbd4-4247-96c4-2cb73db7f6f0");
+//http://127.0.0.1:8000/en/widgets/widgethtml/e22ec752-cbd4-4247-96c4-2cb73db7f6f0.setAttribute("style", "position: fixed; top: 45%; right: 0; border: 0; width: 100px; height: 200px");
+
+//(document.getElementsByTagName("body")[0] || document.documentElement).appendChild(iFrame);
+
+//var doc = document.getElementById("iframe").contentDocument;
 
 /******** Load jQuery if not present *********/
 if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
+
+
     var script_tag = document.createElement('script');
     script_tag.setAttribute("type","text/javascript");
     script_tag.setAttribute("src",
@@ -22,7 +32,12 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.2.1') {
       script_tag.onload = scriptLoadHandler;
     }
     // Try to find the head, otherwise default to the documentElement
+    //var iframe = '<iframe id="iframe" style="width: 0px; height: 0px"><html><head><title>Titolo</title></head><body><p>body</p></body></html></iframe>';
+
     (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+
+
+    //(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(iframe);
 } else {
     // The jQuery version on the window is the one we want to use
     jQuery = window.jQuery;
@@ -52,26 +67,39 @@ function main() {
     
     var stepform_srcipt = document.createElement('script');
     stepform_srcipt.setAttribute("type", "text/javascript");
-    stepform_srcipt.setAttribute("id", "script");
-    stepform_srcipt.setAttribute("src", "https://stagingserver.xyz/static/js/stepform.js");
-    
+    stepform_srcipt.setAttribute("src", "http://127.0.0.1:8000/static/js/stepform.js");
+
+
+    var bootstrapmd_script = document.createElement('script');
+    bootstrapmd_script.setAttribute("type", "text/javascript");
+    bootstrapmd_script.setAttribute("src", "http://127.0.0.1:8000/static/js/compiled.min.js");
+
     (document.getElementsByTagName("head")[0] || document.documentElement).append(stepform_srcipt);
+    (document.getElementsByTagName("head")[0] || document.documentElement).append(bootstrapmd_script);
 
     jQuery(document).ready(function($) {
         localStorage.removeItem("surpriseClicked");
 
         var popup_styles = document.createElement('link');
         popup_styles.setAttribute("rel", "stylesheet");
-        popup_styles.setAttribute("href", "https://stagingserver.xyz/static/css/popup.css");
+        popup_styles.setAttribute("href", "http://127.0.0.1:8000/static/css/popup.css");
         
         var stepform_styles = document.createElement('link');
         stepform_styles.setAttribute("rel", "stylesheet");
-        stepform_styles.setAttribute("href", "https://stagingserver.xyz/static/css/stepform.css");
+        stepform_styles.setAttribute("href", "http://127.0.0.1:8000/static/css/stepform.css");
 
+        var font_awesome_styles = document.createElement('link');
+        font_awesome_styles.setAttribute("rel", "stylesheet");
+        font_awesome_styles.setAttribute("href", "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+        var bootstrapmd_styles = document.createElement('link');
+        bootstrapmd_styles.setAttribute("rel", "stylesheet");
+        bootstrapmd_styles.setAttribute("href", "http://127.0.0.1:8000/static/css/compiled.min.css");
 
         (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(popup_styles);
         (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(stepform_styles);
-
+        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(bootstrapmd_styles);
+        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(font_awesome_styles);
 
 
         jQuery.fn.shake = function (interval, distance, times) {
@@ -317,17 +345,21 @@ function main() {
 
 
 
-
         jQuery('body').append(
-          '<a id="surprise_button" href="#popup1">' +
+          '<a id="surprise_button" href="#popup1" >' +
           '<div style="position: fixed; top: 45%; right: 0;">' +
-          '<img style="width: 5em; height: 5em" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">' +
+          '<img id="animatedImg" class="animated tada infinite" style="width: 5em; height: 5em" id="surprise" src="https://it.utah.edu/_images/taylor/gift.png">' +
           '</div>' +
           '</a>'
           )
 
+        jQuery('body').append('<div id="widget-modal"></div>');
+
+        //jQuery('#widget-modal').append('<div class="modal fade" id="centralModalWarningDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> <div class="modal-dialog modal-notify modal-warning" role="document"> <div class="modal-content"> <div class="modal-header"> <p class="heading">Modal Warning</p><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true" class="white-text">&times;</span> </button> </div><div class="modal-body"> <div class="row"> <div class="col-3 text-center"> <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(1).jpg" alt="Michal Szymanski - founder of Material Design for Bootstrap" class="img-fluid z-depth-1-half rounded-circle"> <div style="height: 10px"></div><p class="title mb-0">Jane</p><p class="text-muted " style="font-size: 13px">Consultant</p></div><div class="col-9"> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, molestiae provident temporibus sunt earum.</p><p class="card-text"><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong></p></div></div></div><div class="modal-footer justify-content-center"> <a type="button" class="btn btn-primary-modal">Get it now <i class="fa fa-diamond ml-1"></i></a> <a type="button" class="btn btn-outline-secondary-modal waves-effect" data-dismiss="modal">No, thanks</a> </div></div></div></div>');
+        //jQuery('#widget-modal').append('<div class="modal fade" id="modalLRFormDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> <div class="modal-dialog cascading-modal" role="document"> <div class="modal-content"> <div class="modal-c-tabs"> <ul class="nav nav-tabs tabs-2 light-blue darken-3" role="tablist"> <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#panel17" role="tab"><i class="fa fa-user mr-1"></i> Login</a> </li><li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#panel18" role="tab"><i class="fa fa-user-plus mr-1"></i> Register</a> </li></ul> <div class="tab-content"> <div class="tab-pane fade in show active" id="panel17" role="tabpanel"> <div class="modal-body mb-1"> <div class="md-form form-sm"> <i class="fa fa-envelope prefix"></i> <input type="text" id="form2" class="form-control"> <label for="form2">Your email</label> </div><div class="md-form form-sm"> <i class="fa fa-lock prefix"></i> <input type="password" id="form3" class="form-control"> <label for="form3">Your password</label> </div><div class="text-center mt-2"> <button class="btn btn-info">Log in <i class="fa fa-sign-in ml-1"></i></button> </div></div><div class="modal-footer"> <div class="options text-center text-md-right mt-1"> <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p><p>Forgot <a href="#" class="blue-text">Password?</a></p></div><button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button> </div></div><div class="tab-pane fade" id="panel18" role="tabpanel"> <div class="modal-body"> <div class="md-form form-sm"> <i class="fa fa-envelope prefix"></i> <input type="text" id="form14" class="form-control"> <label for="form14">Your email</label> </div><div class="md-form form-sm"> <i class="fa fa-lock prefix"></i> <input type="password" id="form5" class="form-control"> <label for="form5">Your password</label> </div><div class="md-form form-sm"> <i class="fa fa-lock prefix"></i> <input type="password" id="form6" class="form-control"> <label for="form6">Repeat password</label> </div><div class="text-center form-sm mt-2"> <button class="btn btn-info">Sign up <i class="fa fa-sign-in ml-1"></i></button> </div></div><div class="modal-footer"> <div class="options text-right"> <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p></div><button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button> </div></div></div></div></div></div></div>');
+
         
-        jQuery('body').append(
+        jQuery('#widget-modal').append(
           '<div id="popup1" class="overlay">' +
           '<div class="popup">' +
           '<form class="stepform">' +
@@ -341,19 +373,21 @@ function main() {
             '<fieldset class="sf-step">' +
               '<legend>1. Как вас зовут?</legend>' +
               '<p>' +
-                '<label class="control-label" for="name">Имя</label>' +
-                '<input class="form-control" id="name" name="mobile" data-validate="2"/>' +
+                '<div class="md-form">' +
+                  '<label class="active" for="name33">Имя</label>' +
+                  '<input class="widget-form-control" type="text" id="name33" name="mobile" data-validate="2"/>' +
+                '</div>' +
               '</p>' +
             '</fieldset>' +
             '<fieldset class="sf-step">' +
               '<legend>2. Как с вами связаться?</legend>' +
               '<p>' +
                 '<label class="control-label" for="mobile">Номер телефона</label>' +
-                '<input class="form-control" type="tel" id="mobile" name="mobile" data-validate="10"/>' +
+                '<input class="widget-form-control" type="tel" id="mobile" name="mobile" data-validate="10"/>' +
               '</p>' +
               '<p>' +
                 '<label class="control-label" for="email">Электронная почта</label>' +
-                '<input class="form-control" id="email" name="email" data-validate="email"/>' +
+                '<input class="widget-form-control" id="email" name="email" data-validate="email"/>' +
               '</p>' +
             '</fieldset>' +
             '<fieldset class="sf-step">' +
@@ -370,8 +404,8 @@ function main() {
         
 
         //jQuery('body').append('<div class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> <div class="modal-dialog modal-notify{% if widget.form_type is 'color_form' %}{{widgte.color_form_color}}{% endif %}" role="document"> <div class="modal-content">{% if widget.form_type is 'color_form' %}<div class="modal-header"> <p class="heading lead">{{widget.title}}</p><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true" class="white-text">&times;</span> </button> </div>{% endif %}<div class="modal-body">{% if widget.form_type is 'color_form' %}<div class="text-center"> <i class="{{widget.color_form_icon}}{{widget.color_form_icon_size}}mb-3{{widget.color_form_animated}}"></i> <p>{{widget.offer}}</p></div>{% elif widget.form_type is 'person_form' %}<div class="row"> <div class="col-3 text-center">{#% avatar widget.user class="img-fluid z-depth-1-half rounded-circle" alt="user.full_name" id="user_avatar" %#}<div style="height: 10px"></div><p class="title mb-0">{{widget.user.full_name}}</p><p class="text-muted " style="font-size: 13px">{{widget.user.profession}}</p></div><div class="col-9"> <p><strong>{{widget.offer}}</strong></p><p>{{widget.text}}</p></div></div>{% elif widget.form_type is 'image_form' %}<div class="card card-image" style="background-image: url('{{widget.image}}'); width: 28rem;"> <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4"> </div></div>{% endif %}</div>{% if widget.form_type is not 'image_form' %}<div class="modal-footer justify-content-center"> <a type="button" class="btn btn-primary-modal">{{button.text}}<i class="{{button.icon}}{{button.icon_size}}mb-3"></i></a> <a type="button" class="btn btn-outline-secondary-modal waves-effect" data-dismiss="modal">{{button_cancel.text}}</a> </div>{% endif %}</div></div></div>');
-        surprise = jQuery('#surprise');
-        surprise.shake(100,2.5,300);
+        //surprise = jQuery('#surprise');
+        //surprise.shake(100,2.5,300);
         
 
         var leed_data = JSON.stringify({
@@ -390,12 +424,11 @@ function main() {
           "closed": "{{ closed }}",
         });
 
-
         jQuery('#ab').click(function () {
             $.ajax({
                 type: "POST",
                 data: leed_data,
-                url: "https://stagingserver.xyz/api/leeds/?token={{ user_token }}",
+                url: "https://stagingserver.xyz/ru/api/leeds/?token={{ user_token }}",
                 cache: false,
                 dataType: "json",
                 contentType : 'application/json',
@@ -410,10 +443,13 @@ function main() {
         });
 
         jQuery('#surprise_button').click(function () {
+            $('#animatedImg').removeClass('infinite');
+            aasd = window.top.document.getElementById("iFrame");
+            aasd.addClass('asdasdasd');
             $.ajax({
                 type: "PUT",
                 data: widget_opened_data,
-                url: "https://stagingserver.xyz/api/widgets/{{ object.pk }}/?token={{ user_token }}",
+                url: "https://stagingserver.xyz/ru/api/widgets/{{ object.pk }}/?token={{ user_token }}",
                 cache: false,
                 dataType: "json",
                 contentType : 'application/json',
@@ -427,12 +463,11 @@ function main() {
             });
         });
 
-
         jQuery('#close').click(function () {
             $.ajax({
                 type: "PUT",
                 data: widget_closed_data,
-                url: "https://stagingserver.xyz/api/widgets/{{ object.pk }}/?token={{ user_token }}",
+                url: "https://stagingserver.xyz/ru/api/widgets/{{ object.pk }}/?token={{ user_token }}",
                 cache: false,
                 dataType: "json",
                 contentType : 'application/json',
@@ -448,10 +483,6 @@ function main() {
 
         alert('ready');
         console.log('fuck that shit!')
-
-
-
-
 
 
 
