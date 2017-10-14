@@ -185,9 +185,8 @@ from rest_framework import generics
 
 
 
-class WidgetDetail(mixins.RetrieveModelMixin,
+class APIWidgetView(mixins.RetrieveModelMixin,
                     mixins.UpdateModelMixin,
-                    mixins.DestroyModelMixin,
                     generics.GenericAPIView):
     
     queryset = Widget.objects.all()
@@ -198,7 +197,7 @@ class WidgetDetail(mixins.RetrieveModelMixin,
 
     #def post(self, request, *args, **kwargs):
     #    return self.create(request, *args, **kwargs)
-
+'''
 class LeedList(APIView):
 
     def post(self, request, format=None):
@@ -207,11 +206,11 @@ class LeedList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+'''
 
-
-class LeedDetail(mixins.RetrieveModelMixin,
+class APILeedView(mixins.RetrieveModelMixin,
                     mixins.UpdateModelMixin,
-                    mixins.DestroyModelMixin,
+                    mixins.CreateModelMixin,
                     generics.GenericAPIView):
 
     queryset = Leed.objects.all()
@@ -219,3 +218,6 @@ class LeedDetail(mixins.RetrieveModelMixin,
 
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
