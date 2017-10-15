@@ -1,4 +1,6 @@
 from .models import User
+from django.dispatch import receiver
+from django.db.models.signals import pre_save, post_save
 #from django.db.models import signals
 #from tastypie.models import create_api_key
 
