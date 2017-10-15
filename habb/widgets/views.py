@@ -184,6 +184,12 @@ from rest_framework import mixins
 from rest_framework import generics
 
 
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+
+
 
 class APIWidgetView(mixins.RetrieveModelMixin,
                     mixins.UpdateModelMixin,
@@ -201,6 +207,21 @@ class APIWidgetView(mixins.RetrieveModelMixin,
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
 
+'''
+class APIWidgetOpenedView(mixins.RetrieveModelMixin,
+                    mixins.UpdateModelMixin,
+                    generics.GenericAPIView):
+
+
+class APIWidgetClosedView(mixins.RetrieveModelMixin,
+                    mixins.UpdateModelMixin,
+                    generics.GenericAPIView):
+
+
+class APIWidgetViewedView(mixins.RetrieveModelMixin,
+                    mixins.UpdateModelMixin,
+                    generics.GenericAPIView):
+'''
     #def post(self, request, *args, **kwargs):
     #    return self.create(request, *args, **kwargs)
 '''
@@ -246,3 +267,52 @@ class APILeedDetailView(mixins.RetrieveModelMixin,
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
 
+
+
+
+
+@api_view(['PUT'])
+def widget_opened(request, pk):
+
+    try:
+        widget = Widget.objects.get(pk=pk)
+    except Widget.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = WidgetSerializer(widget)
+        if serializer.is_valid():
+            serializer.data['opened'] =+ 1
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['PUT'])
+def widget_closed(request, pk):
+
+    try:
+        widget = Widget.objects.get(pk=pk)
+    except Widget.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = WidgetSerializer(widget)
+        if serializer.is_valid():
+            serializer.data['closed'] =+ 1
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['PUT'])
+def widget_viewed(request, pk):
+
+    try:
+        widget = Widget.objects.get(pk=pk)
+    except Widget.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = WidgetSerializer(widget)
+        if serializer.is_valid():
+            serializer.data['viewed'] =+ 1
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
