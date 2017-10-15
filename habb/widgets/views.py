@@ -208,10 +208,21 @@ class LeedList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 '''
 
-class APILeedView(mixins.RetrieveModelMixin,
-                    mixins.UpdateModelMixin,
+class APILeedListView(mixins.RetrieveModelMixin,
                     mixins.CreateModelMixin,
                     generics.GenericAPIView):
+
+    queryset = Leed.objects.all()
+    serializer_class = LeedSerializer
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+
+
+class APILeedDetailView(mixins.RetrieveModelMixin,
+                        mixins.UpdateModelMixin,                    
+                        generics.GenericAPIView):
 
     queryset = Leed.objects.all()
     serializer_class = LeedSerializer
@@ -219,5 +230,3 @@ class APILeedView(mixins.RetrieveModelMixin,
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
 
-    def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
