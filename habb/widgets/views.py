@@ -276,15 +276,12 @@ def widget_opened(request, pk):
 
     try:
         widget = Widget.objects.get(pk=pk)
+        widget.opened += 1
+        widget.save()
     except Widget.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serializer = WidgetSerializer(widget)
-        if serializer.is_valid():
-            serializer.data['opened'] =+ 1
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    return Response(status=status.HTTP_200_OK)
 
 
 @api_view(['PUT'])
@@ -292,27 +289,22 @@ def widget_closed(request, pk):
 
     try:
         widget = Widget.objects.get(pk=pk)
+        widget.closed += 1
+        widget.save()
     except Widget.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serializer = WidgetSerializer(widget)
-        if serializer.is_valid():
-            serializer.data['closed'] =+ 1
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    return Response(status=status.HTTP_200_OK)
+
 
 @api_view(['PUT'])
 def widget_viewed(request, pk):
 
     try:
         widget = Widget.objects.get(pk=pk)
+        widget.viewed += 1
+        widget.save()
     except Widget.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serializer = WidgetSerializer(widget)
-        if serializer.is_valid():
-            serializer.data['viewed'] =+ 1
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    return Response(status=status.HTTP_200_OK)
