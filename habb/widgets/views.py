@@ -235,7 +235,7 @@ class APILeedDetailView(mixins.RetrieveModelMixin,
                         mixins.UpdateModelMixin,                    
                         generics.GenericAPIView):
 
-    #queryset = Leed.objects.all()
+    queryset = Leed.objects.all()
 
     #def get_queryset(self):
     #    user = self.request.user
