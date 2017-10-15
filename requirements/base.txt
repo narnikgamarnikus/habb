@@ -67,3 +67,4 @@ django-rest-swagger
 django-avatar
 djangorestframework-jwt
 django-cors-headers
+coreapi
