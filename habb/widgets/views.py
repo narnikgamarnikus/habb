@@ -237,9 +237,9 @@ class APILeedDetailView(mixins.RetrieveModelMixin,
 
     #queryset = Leed.objects.all()
 
-    def get_queryset(self):
-        user = self.request.user
-        return Leed.objects.filter(widget__website__user=user)
+    #def get_queryset(self):
+    #    user = self.request.user
+    #    return Leed.objects.filter(widget__website__user=user)
 
     serializer_class = LeedSerializer
 
