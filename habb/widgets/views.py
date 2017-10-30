@@ -192,7 +192,7 @@ from rest_framework.response import Response
 
 
 class APIWidgetView(mixins.RetrieveModelMixin,
-                    mixins.UpdateModelMixin,
+                    #mixins.UpdateModelMixin,
                     generics.GenericAPIView):
     
     #queryset = Widget.objects.all()
@@ -204,8 +204,8 @@ class APIWidgetView(mixins.RetrieveModelMixin,
 
     serializer_class = WidgetSerializer
 
-    def put(self, request, *args, **kwargs):
-        return self.update(request, *args, **kwargs)
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
 
 '''
 class APIWidgetOpenedView(mixins.RetrieveModelMixin,

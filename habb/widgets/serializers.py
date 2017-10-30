@@ -5,13 +5,13 @@ from .models import Leed, Widget
 class LeedSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Leed
-		fields = ('id', 'widget', 'first_name', 'last_name', 'email', 'phone_number', 'token', 'referal')
+		fields = ('id', 'widget', 'first_name', 'last_name', 'email', 'phone_number', 'token', 'referal',)
 
 
 class WidgetSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Widget
-		fields = ('id', 'viewed', 'opened', 'closed')
+		fields = ('id', 'status', 'competition')
 
 '''
 class LeedSerializer(serializers.Serializer):
