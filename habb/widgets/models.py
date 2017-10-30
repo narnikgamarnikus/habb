@@ -66,7 +66,7 @@ class Widget(Base):
 
 	steps = models.PositiveSmallIntegerField(default=3)
 
-	competitions = models.CharField(
+	competition = models.CharField(
 		choices=COMPETITIONS,
 		default=COMPETITIONS.random,
 		max_length=20
