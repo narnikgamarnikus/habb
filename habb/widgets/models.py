@@ -14,6 +14,9 @@ from model_utils.fields import StatusField, MonitorField
 from django.utils.functional import cached_property
 from annoying.functions import get_object_or_None
 from .utils import token_generator
+from django.core.exceptions import ValidationError
+
+
 
 LEXERS = [item for item in get_all_lexers() if item[1]]
 LANGUAGE_CHOICES = sorted([(item[1][0], item[0]) for item in LEXERS])
@@ -42,6 +45,27 @@ class Website(Base):
 		return reverse('widgets.website_detail', kwargs={'pk': self.pk})
 
 
+python_2_unicode_compatible
+class Competition(Base):
+	
+	STATUS = Choices(
+		('active', 'active', _('Active')), 
+		('complete', 'complete', _('Complete'))
+	)
+
+	status = StatusField(
+		choices=STATUS, 
+		default=STATUS.active,
+		max_length=20
+	)
+
+	winner = models.ForeignKey('widgets.Leed')
+
+	def __str__(self):
+		return str(self.pk)
+
+
+
 @python_2_unicode_compatible
 class Widget(Base):
 
@@ -64,26 +88,34 @@ class Widget(Base):
 		('first_name', 'first_name', _('First name'))
 	)
 
-	steps = models.PositiveSmallIntegerField(default=3)
+	steps = models.PositiveSmallIntegerField(default=3, blank=True)
 
-	competition = models.CharField(
+	competition = models.ForeignKey(
+		'widgets.Competition', 
+		null=True,
+		blank=True
+	)
+
+	competition_type = models.CharField(
 		choices=COMPETITIONS,
 		default=COMPETITIONS.random,
-		max_length=20
+		max_length=20,
+		blank=True
 	)
 
 	status = StatusField(
 		choices=STATUS, 
 		default=STATUS.stoped,
-		max_length=20
+		max_length=20,
+		blank=True
 	)
 	
-	title = models.CharField(max_length=50, null=True)
-	offer = models.CharField(max_length=50, null=True)
-	text = models.CharField(max_length=100, null=True)
-	image = models.ImageField(null=True)
-	button_text = models.CharField(max_length=50, null=True)
-	button_color = models.CharField(max_length=50, null=True)
+	title = models.CharField(max_length=50, null=True, blank=True)
+	offer = models.CharField(max_length=50, null=True, blank=True)
+	text = models.CharField(max_length=100, null=True, blank=True)
+	image = models.ImageField(null=True, blank=True)
+	button_text = models.CharField(max_length=50, null=True, blank=True)
+	button_color = models.CharField(max_length=50, null=True, blank=True)
 
 	#telegram = models.CharField(max_length=50)
 
@@ -95,7 +127,7 @@ class Widget(Base):
 		#)
 
 	website = models.ForeignKey(Website, null=True)
-	token = models.CharField(max_length=100, null=True)
+	token = models.CharField(max_length=100, null=True, blank=True)
 	date_start = models.DateTimeField(null=True)
 	date_end = models.DateTimeField(null=True)
 
@@ -106,6 +138,14 @@ class Widget(Base):
 	def __str__(self):
 		return '{}'.format(self.token)
 
+	def create_competition(self):
+		if self.status == 'end':
+			competition = Competition.objects.create()
+			self.competition = competition
+			self.save()
+		raise ValidationError('Widget must have end status')
+
+
 	def generate_token(self):
 		self.token = token_generator()
 		self.save()
@@ -115,6 +155,13 @@ class Widget(Base):
 
 	def get_absolute_url(self):
 		return reverse('widgets.widget_detail', kwargs={'token': self.token})
+
+
+	def save(self):
+		if not self.token:
+			self.generate_token()
+		return super(Widget, self).save()
+
 
 
 @python_2_unicode_compatible

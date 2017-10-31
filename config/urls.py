@@ -30,7 +30,7 @@ urlpatterns = i18n_patterns(
     #url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
     #url(r'^rest-auth/facebook/$', FacebookLogin.as_view(), name='fb_login'),
     url(r'^avatar/', include('avatar.urls')),
-    url(r'^api/', include('habb.widgets.api_urls')),
+    url(r'^api/', include('habb.widgets.api_urls', namespace='api')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
