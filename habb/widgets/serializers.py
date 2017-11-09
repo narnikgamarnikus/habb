@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Leed, Widget, Competition
+from .models import Leed, Widget
 
 
 class LeedSerializer(serializers.ModelSerializer):
@@ -9,19 +9,18 @@ class LeedSerializer(serializers.ModelSerializer):
 
 
 class WidgetSerializer(serializers.ModelSerializer):
-	competition = serializers.HyperlinkedIdentityField(view_name='api:detail_competition')
-
 	class Meta:
 		model = Widget
-		fields = ('id', 'status', 'competition', 'competition_type')
+		fields = ('id', 'status', 'competition_type', 'competition_status', 'winner', 'title', 'offer', 'text', 'image')
 
+'''
 class CompetitionSerializer(serializers.ModelSerializer):
 	winner = serializers.HyperlinkedIdentityField(view_name='api:leed_detail')
 
 	class Meta:
 		model = Competition
 		fields = ('id', 'status', 'winner')
-
+'''
 '''
 class LeedSerializer(serializers.Serializer):
 	name = serializers.CharField(required=False, allow_blank=True, max_length=50)

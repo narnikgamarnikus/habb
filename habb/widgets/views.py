@@ -1,7 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Widget, Website, Leed, Competition
+from .models import Widget, Website, Leed
 from .forms import WidgetForm
 from django.shortcuts import get_object_or_404
 
@@ -175,7 +175,7 @@ class LeedListView(LoginRequiredMixin, ListView):
 
 
 
-from .serializers import LeedSerializer, WidgetSerializer, CompetitionSerializer
+from .serializers import LeedSerializer, WidgetSerializer#, CompetitionSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -188,7 +188,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-
+'''
 class APICompetitionView(mixins.RetrieveModelMixin,
                     #mixins.UpdateModelMixin,
                     generics.GenericAPIView):
@@ -199,7 +199,7 @@ class APICompetitionView(mixins.RetrieveModelMixin,
 
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
-
+'''
 
 
 class APIWidgetView(mixins.RetrieveModelMixin,

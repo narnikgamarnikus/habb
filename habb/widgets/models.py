@@ -44,7 +44,7 @@ class Website(Base):
 	def get_absolute_url(self):
 		return reverse('widgets.website_detail', kwargs={'pk': self.pk})
 
-
+'''
 python_2_unicode_compatible
 class Competition(Base):
 	
@@ -63,7 +63,7 @@ class Competition(Base):
 
 	def __str__(self):
 		return str(self.pk)
-
+'''
 
 
 @python_2_unicode_compatible
@@ -75,9 +75,15 @@ class Widget(Base):
 		('end', 'end', _('End'))
 	)
 
-	COMPETITIONS = Choices(
+	COMPETITIONS_TYPE = Choices(
 		('random', 'random', _('Random')),
 		('leeds', 'leeds', _('Leeds')) 
+	)
+
+	COMPETITIONS_STATUS = Choices(
+		('soon', 'soon', _('Coming soon')),
+		('active', 'active', _('Active')), 
+		('complete', 'complete', _('Complete'))
 	)
 	
 	FIELDS = Choices(
@@ -90,15 +96,22 @@ class Widget(Base):
 
 	steps = models.PositiveSmallIntegerField(default=3, blank=True)
 
-	competition = models.ForeignKey(
-		'widgets.Competition', 
-		null=True,
+	#competition = models.ForeignKey(
+	#	'widgets.Competition', 
+	#	null=True,
+	#	blank=True
+	#)
+
+	competition_type = models.CharField(
+		choices=COMPETITIONS_TYPE,
+		default=COMPETITIONS_TYPE.random,
+		max_length=20,
 		blank=True
 	)
 
-	competition_type = models.CharField(
-		choices=COMPETITIONS,
-		default=COMPETITIONS.random,
+	competition_status = models.CharField(
+		choices=COMPETITIONS_STATUS,
+		default=COMPETITIONS_STATUS.soon,
 		max_length=20,
 		blank=True
 	)
@@ -119,6 +132,8 @@ class Widget(Base):
 
 	#telegram = models.CharField(max_length=50)
 
+	winner = models.ForeignKey('widgets.Leed', null=True, related_name='winner', blank=True)
+
 
 	fields = models.CharField(#ArrayField(
 		choices=STATUS, 
@@ -128,6 +143,7 @@ class Widget(Base):
 
 	website = models.ForeignKey(Website, null=True)
 	token = models.CharField(max_length=100, null=True, blank=True)
+
 	date_start = models.DateTimeField(null=True)
 	date_end = models.DateTimeField(null=True)
 
