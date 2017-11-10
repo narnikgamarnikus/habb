@@ -9,6 +9,8 @@ class LeedSerializer(serializers.ModelSerializer):
 
 
 class WidgetSerializer(serializers.ModelSerializer):
+	winner = LeedSerializer()
+
 	class Meta:
 		model = Widget
 		fields = ('id', 'status', 'competition_type', 'competition_status', 'winner', 'title', 'offer', 'text', 'image')
